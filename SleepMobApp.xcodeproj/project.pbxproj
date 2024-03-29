@@ -33,7 +33,7 @@
 		A2069A162BA3D9900098365A /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2069A152BA3D9900098365A /* DemoViewController.swift */; };
 		A2069A182BA3D9CE0098365A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2069A172BA3D9CE0098365A /* OnboardingViewController.swift */; };
 		A20E04622BB3506900289357 /* ShopInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E04612BB3506900289357 /* ShopInteractor.swift */; };
-		A20E04642BB4849F00289357 /* CustomClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E04632BB4849F00289357 /* CustomClockView.swift */; };
+		A23EBDE62BB702A5003786E7 /* CustomClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDE52BB702A5003786E7 /* CustomClockView.swift */; };
 		A2E9DB832BB2226F0062C797 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB822BB2226F0062C797 /* ShopViewController.swift */; };
 		A2E9DB852BB313F90062C797 /* Boost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB842BB313F90062C797 /* Boost.swift */; };
 		A2E9DB872BB3162F0062C797 /* ShopModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB862BB3162F0062C797 /* ShopModelDTO.swift */; };
@@ -74,7 +74,7 @@
 		A2069A152BA3D9900098365A /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		A2069A172BA3D9CE0098365A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A20E04612BB3506900289357 /* ShopInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInteractor.swift; sourceTree = "<group>"; };
-		A20E04632BB4849F00289357 /* CustomClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomClockView.swift; path = ../../../../../CustomClockView.swift; sourceTree = "<group>"; };
+		A23EBDE52BB702A5003786E7 /* CustomClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClockView.swift; sourceTree = "<group>"; };
 		A2E9DB822BB2226F0062C797 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		A2E9DB842BB313F90062C797 /* Boost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boost.swift; sourceTree = "<group>"; };
 		A2E9DB862BB3162F0062C797 /* ShopModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModelDTO.swift; sourceTree = "<group>"; };
@@ -100,7 +100,6 @@
 		491A93EF2BB1F55D00FC9AC2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A20E04652BB61DAE00289357 /* ShopCharacter */,
 				A2E9DB812BB222540062C797 /* ShopBoost */,
 				491A93F72BB1F7ED00FC9AC2 /* AboutDev */,
 				491A93F82BB1F81700FC9AC2 /* Demo */,
@@ -221,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				A20246B22BA31E2E008BA9C8 /* HeroCell.swift */,
-				A20E04632BB4849F00289357 /* CustomClockView.swift */,
+				A23EBDE52BB702A5003786E7 /* CustomClockView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -251,13 +250,6 @@
 				A2069A172BA3D9CE0098365A /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		A20E04652BB61DAE00289357 /* ShopCharacter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ShopCharacter;
 			sourceTree = "<group>";
 		};
 		A2E9DB812BB222540062C797 /* ShopBoost */ = {
@@ -383,7 +375,7 @@
 				A2E9DB8E2BB31FB10062C797 /* ShopRouter.swift in Sources */,
 				491A93FD2BB1FCEB00FC9AC2 /* MainProtocols.swift in Sources */,
 				491A93F52BB1F76500FC9AC2 /* UIColor+.swift in Sources */,
-				A20E04642BB4849F00289357 /* CustomClockView.swift in Sources */,
+				A23EBDE62BB702A5003786E7 /* CustomClockView.swift in Sources */,
 				A2E9DB922BB31FF70062C797 /* ShopProtocols.swift in Sources */,
 				A20246AF2BA237BF008BA9C8 /* AboutDevViewController.swift in Sources */,
 				491A94072BB206D600FC9AC2 /* MainViewModel.swift in Sources */,
