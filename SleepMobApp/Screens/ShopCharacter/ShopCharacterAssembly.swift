@@ -14,10 +14,12 @@ final class ShopCharacterAssemblyImp: ShopCharacterAssembly {
         
         let modelDTO: ShopCharacterModelDTO = .init(
             items: [
-                .init(type: .cap1),
-                .init(type: .cap2),
-                .init(type: .mask),
-                .init(type: .fairy),
+                .init(type: .baby),
+                .init(type: .student),
+                .init(type: .police),
+                .init(type: .dad),
+                .init(type: .cat),
+                .init(type: .bear),
              
             ]
         )

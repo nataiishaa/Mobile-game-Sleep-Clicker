@@ -107,7 +107,7 @@ final class ShopCharacterViewController: UIViewController {
         backButton.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backButton)
-
+        
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -115,7 +115,7 @@ final class ShopCharacterViewController: UIViewController {
             backButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-
+    
     private func configureChangeShopButton() {
         changeShopButton.setTitle("improve cloth", for: .normal)
         changeShopButton.backgroundColor = UIColor.gray
@@ -128,33 +128,20 @@ final class ShopCharacterViewController: UIViewController {
     }
     
     private func configureShopNameView() {
-      
+        
         shopNameView.backgroundColor = UIColor.gray
         shopNameView.setWidth(150)
         shopNameView.setHeight(50)
         shopNameView.pinTop(to: titleLabel.bottomAnchor, 30)
         shopNameView.pinRight(to: view.trailingAnchor, 15)
         shopNameView.text = "character"
-      
-    
+        
+        
         
     }
     
-    @objc
-    func changeShop() {
-        print("hello")
-    }
     
-//    @objc
-//    func backAction() {
-//        
-//        if let navController = navigationController, navController.viewControllers.first != self {
-//            navController.popViewController(animated: true)
-//        } else {
-//            
-//            dismiss(animated: true, completion: nil)
-//        }
-//    }
+    
 }
 
 // MARK: - MainViewControllerProtocol
@@ -217,6 +204,6 @@ extension ShopCharacterViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     
- 
+    
 }
 

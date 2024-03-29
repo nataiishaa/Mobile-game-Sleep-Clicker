@@ -21,28 +21,33 @@ extension ShopCharacterModelDTO {
     }
     
     enum CharacterType: String {
-        case cap1
-        case cap2
-        case mask
-        case fairy
-   
+        case baby
+        case student
+        case police
+        case dad
+        case cat
+        case bear
         
         var name: String {
             switch self {
-            case .cap1:
-                "Sleep cap"
-            case .cap2:
-                "Sleep cap"
-            case .mask:
-                "Mask"
-            case .fairy:
-                "Fairy Fiona"
-       
+            case .baby:
+                "Baby"
+            case .student:
+                "Student"
+            case .police:
+                "Police"
+            case .dad:
+                "Dad"
+            case .cat:
+                "Cat"
+            case .bear:
+                "Bear"
             }
         }
         
+        
         var imageAwakeName: String {
-            "\(self.rawValue)Boost"
+            "\(self.rawValue)ToBuy"
         }
         
       
@@ -52,14 +57,6 @@ extension ShopCharacterModelDTO {
         case asleep
         case awake
         
-//        var next: SleepState {
-//            switch self {
-//            case .asleep:
-//                return .awake
-//            case .awake:
-//                return .asleep
-//            }
-//        }
     }
 }
 
