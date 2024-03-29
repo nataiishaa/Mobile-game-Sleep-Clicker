@@ -16,6 +16,7 @@ final class Character {
     public var sleepState: MainModelDTO.SleepState
     public var startSleepTime = Date()
     public var awakeSleepTime = Date()
+    public var price = 5
     
     init(
         name: String,

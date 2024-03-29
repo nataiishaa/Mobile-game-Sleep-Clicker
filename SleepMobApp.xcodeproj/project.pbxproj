@@ -34,7 +34,14 @@
 		A2069A182BA3D9CE0098365A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2069A172BA3D9CE0098365A /* OnboardingViewController.swift */; };
 		A20E04622BB3506900289357 /* ShopInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20E04612BB3506900289357 /* ShopInteractor.swift */; };
 		A23EBDE62BB702A5003786E7 /* CustomClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDE52BB702A5003786E7 /* CustomClockView.swift */; };
-		A23EBDEC2BB70AF3003786E7 /* ShopCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDEB2BB70AF3003786E7 /* ShopCharacter.swift */; };
+		A23EBDEF2BB74919003786E7 /* ShopCharacterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDEE2BB74919003786E7 /* ShopCharacterRouter.swift */; };
+		A23EBDF12BB74939003786E7 /* ShopCharacterProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDF02BB74939003786E7 /* ShopCharacterProtocols.swift */; };
+		A23EBDF32BB7494B003786E7 /* ShopCharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDF22BB7494B003786E7 /* ShopCharacterPresenter.swift */; };
+		A23EBDF52BB7496A003786E7 /* ShopCharacterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDF42BB7496A003786E7 /* ShopCharacterAssembly.swift */; };
+		A23EBDF72BB749AF003786E7 /* ShopCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDF62BB749AF003786E7 /* ShopCharacterViewController.swift */; };
+		A23EBDF92BB749D9003786E7 /* ShopCharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDF82BB749D9003786E7 /* ShopCharacterInteractor.swift */; };
+		A23EBDFB2BB74A1E003786E7 /* ShopCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDFA2BB74A1E003786E7 /* ShopCharacterViewModel.swift */; };
+		A23EBDFD2BB74A3D003786E7 /* ShopCharacterModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDFC2BB74A3D003786E7 /* ShopCharacterModelDTO.swift */; };
 		A2E9DB832BB2226F0062C797 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB822BB2226F0062C797 /* ShopViewController.swift */; };
 		A2E9DB852BB313F90062C797 /* Boost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB842BB313F90062C797 /* Boost.swift */; };
 		A2E9DB872BB3162F0062C797 /* ShopModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB862BB3162F0062C797 /* ShopModelDTO.swift */; };
@@ -76,7 +83,14 @@
 		A2069A172BA3D9CE0098365A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A20E04612BB3506900289357 /* ShopInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInteractor.swift; sourceTree = "<group>"; };
 		A23EBDE52BB702A5003786E7 /* CustomClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClockView.swift; sourceTree = "<group>"; };
-		A23EBDEB2BB70AF3003786E7 /* ShopCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacter.swift; sourceTree = "<group>"; };
+		A23EBDEE2BB74919003786E7 /* ShopCharacterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterRouter.swift; sourceTree = "<group>"; };
+		A23EBDF02BB74939003786E7 /* ShopCharacterProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterProtocols.swift; sourceTree = "<group>"; };
+		A23EBDF22BB7494B003786E7 /* ShopCharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterPresenter.swift; sourceTree = "<group>"; };
+		A23EBDF42BB7496A003786E7 /* ShopCharacterAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterAssembly.swift; sourceTree = "<group>"; };
+		A23EBDF62BB749AF003786E7 /* ShopCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterViewController.swift; sourceTree = "<group>"; };
+		A23EBDF82BB749D9003786E7 /* ShopCharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterInteractor.swift; sourceTree = "<group>"; };
+		A23EBDFA2BB74A1E003786E7 /* ShopCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterViewModel.swift; sourceTree = "<group>"; };
+		A23EBDFC2BB74A3D003786E7 /* ShopCharacterModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterModelDTO.swift; sourceTree = "<group>"; };
 		A2E9DB822BB2226F0062C797 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		A2E9DB842BB313F90062C797 /* Boost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boost.swift; sourceTree = "<group>"; };
 		A2E9DB862BB3162F0062C797 /* ShopModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModelDTO.swift; sourceTree = "<group>"; };
@@ -258,9 +272,32 @@
 		A23EBDEA2BB70ABC003786E7 /* ShopCharacter */ = {
 			isa = PBXGroup;
 			children = (
-				A23EBDEB2BB70AF3003786E7 /* ShopCharacter.swift */,
+				A23EBDFE2BB74D7E003786E7 /* Views */,
+				A23EBDED2BB7488E003786E7 /* Models */,
+				A23EBDEE2BB74919003786E7 /* ShopCharacterRouter.swift */,
+				A23EBDF62BB749AF003786E7 /* ShopCharacterViewController.swift */,
+				A23EBDF22BB7494B003786E7 /* ShopCharacterPresenter.swift */,
+				A23EBDF02BB74939003786E7 /* ShopCharacterProtocols.swift */,
+				A23EBDF42BB7496A003786E7 /* ShopCharacterAssembly.swift */,
+				A23EBDF82BB749D9003786E7 /* ShopCharacterInteractor.swift */,
 			);
 			path = ShopCharacter;
+			sourceTree = "<group>";
+		};
+		A23EBDED2BB7488E003786E7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A23EBDFA2BB74A1E003786E7 /* ShopCharacterViewModel.swift */,
+				A23EBDFC2BB74A3D003786E7 /* ShopCharacterModelDTO.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A23EBDFE2BB74D7E003786E7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A2E9DB812BB222540062C797 /* ShopBoost */ = {
@@ -368,19 +405,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23EBDF72BB749AF003786E7 /* ShopCharacterViewController.swift in Sources */,
 				A2069A182BA3D9CE0098365A /* OnboardingViewController.swift in Sources */,
+				A23EBDF92BB749D9003786E7 /* ShopCharacterInteractor.swift in Sources */,
 				A2E9DB832BB2226F0062C797 /* ShopViewController.swift in Sources */,
 				A2069A0C2BA3856D0098365A /* MusicPlayer.swift in Sources */,
 				491A93FF2BB1FD0200FC9AC2 /* MainPresenter.swift in Sources */,
+				A23EBDEF2BB74919003786E7 /* ShopCharacterRouter.swift in Sources */,
 				A20246AD2BA2204F008BA9C8 /* CloudStackView.swift in Sources */,
+				A23EBDF32BB7494B003786E7 /* ShopCharacterPresenter.swift in Sources */,
 				A2E9DB852BB313F90062C797 /* Boost.swift in Sources */,
+				A23EBDF52BB7496A003786E7 /* ShopCharacterAssembly.swift in Sources */,
+				A23EBDFB2BB74A1E003786E7 /* ShopCharacterViewModel.swift in Sources */,
+				A23EBDFD2BB74A3D003786E7 /* ShopCharacterModelDTO.swift in Sources */,
 				A20246A32BA1E88E008BA9C8 /* MainViewController.swift in Sources */,
 				491A94052BB204BA00FC9AC2 /* MainModelDTO.swift in Sources */,
 				A20E04622BB3506900289357 /* ShopInteractor.swift in Sources */,
 				491A94012BB1FD1100FC9AC2 /* MainInteractor.swift in Sources */,
 				A2069A162BA3D9900098365A /* DemoViewController.swift in Sources */,
+				A23EBDF12BB74939003786E7 /* ShopCharacterProtocols.swift in Sources */,
 				491A93FB2BB1FCD900FC9AC2 /* MainRouter.swift in Sources */,
-				A23EBDEC2BB70AF3003786E7 /* ShopCharacter.swift in Sources */,
 				A20246882BA1E405008BA9C8 /* AppDelegate.swift in Sources */,
 				A20246A52BA1E9BA008BA9C8 /* UIView+.swift in Sources */,
 				A2E9DB942BB3201D0062C797 /* ShopPresenter.swift in Sources */,

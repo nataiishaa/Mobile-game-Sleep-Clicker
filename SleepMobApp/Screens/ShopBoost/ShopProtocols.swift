@@ -33,4 +33,7 @@ protocol ShopPresenter: AnyObject {
 
 protocol ShopRouter: AnyObject {
     func goToSettings()
+    func goToCharacterShop()
 }
+
+

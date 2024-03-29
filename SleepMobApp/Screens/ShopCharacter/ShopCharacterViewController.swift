@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class ShopViewController: UIViewController {
-    private var interactor: ShopInteractor?
-    private var router: ShopRouter?
+final class ShopCharacterViewController: UIViewController {
+    private var interactor: ShopCharacterInteractor?
+    private var router: ShopCharacterRouter?
     
-    var viewModel: ShopViewModel = .init(
-        improves: []
+    var viewModel: ShopCharacterViewModel = .init(
+        heroes: []
     ) {
         didSet {
-            boosts.reloadData()
+            heroes.reloadData()
         }
     }
     
@@ -26,9 +26,10 @@ final class ShopViewController: UIViewController {
     private let balanceLabel = UILabel()
     private let changeShopButton = UIButton()
     private let shopNameView = UILabel()
+    private let backButton = UIButton()
     
     private let cellId = "improve"
-    private var boosts: UICollectionView!
+    private var heroes: UICollectionView!
     
     func configureUI(){
         view.addSubview(titleLabel)
@@ -43,6 +44,8 @@ final class ShopViewController: UIViewController {
         configureChangeShopButton()
         view.addSubview(shopNameView)
         configureShopNameView()
+        view.addSubview(backButton)
+        configureBackButton()
     }
     
     func configureSettingsButton() {
@@ -76,11 +79,11 @@ final class ShopViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         view.backgroundColor = UIColor(hex: "0D4496")
-        boosts.delegate = self
-        boosts.dataSource = self
+        heroes.delegate = self
+        heroes.dataSource = self
         
         interactor?.activate()
-        self.router = ShopRouterImp(interactor: interactor!, view: self)
+        self.router = ShopCharacterRouterImp(interactor: interactor!, view: self)
         
     }
     
@@ -90,97 +93,95 @@ final class ShopViewController: UIViewController {
         layout.sectionInset = UIEdgeInsets(top: 45, left: 22, bottom: 25, right: 22)
         layout.itemSize = CGSize(width: (view.frame.width-60)/2, height: view.frame.height/4)
         let rect = CGRect(x: 0, y: 190, width: view.frame.width, height: view.frame.height - 285)
-        boosts = UICollectionView(frame: rect, collectionViewLayout: layout)
-        boosts.dataSource = self
-        boosts.delegate = self
-        boosts.register(ImproveCell.self, forCellWithReuseIdentifier: cellId)
-        boosts.showsVerticalScrollIndicator = true
-        boosts.backgroundColor = .clear
-        boosts.layer.masksToBounds = true
-        view.addSubview(boosts)
+        heroes = UICollectionView(frame: rect, collectionViewLayout: layout)
+        heroes.dataSource = self
+        heroes.delegate = self
+        heroes.register(HeroCell.self, forCellWithReuseIdentifier: cellId)
+        heroes.showsVerticalScrollIndicator = true
+        heroes.backgroundColor = .clear
+        heroes.layer.masksToBounds = true
+        view.addSubview(heroes)
     }
-    
     private func configureBackButton() {
-        let backButton = UIButton()
         backButton.setImage(UIImage(named: "back"), for: .normal)
-        //backButton.setTitle("Back", for: .normal)
-        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        
-        // Добавляем кнопку на view и отключаем autoresizing mask
+        backButton.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backButton)
-        
-        
+
         NSLayoutConstraint.activate([
-            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor), // Отступ сверху от safe area
-            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20), // Отступ справа от safe area
-            backButton.widthAnchor.constraint(equalToConstant: 60), // Ширина кнопки
-            backButton.heightAnchor.constraint(equalToConstant: 40) // Высота кнопки
+            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
-    
+
     private func configureChangeShopButton() {
+        changeShopButton.setTitle("improve cloth", for: .normal)
         changeShopButton.backgroundColor = UIColor.gray
         changeShopButton.setWidth(150)
         changeShopButton.setHeight(50)
         changeShopButton.pinTop(to: titleLabel.bottomAnchor, 30)
-        changeShopButton.pinRight(to: view.trailingAnchor, 15)
-        changeShopButton.setTitle("characters", for: .normal)
-        changeShopButton.addTarget(self, action: #selector(goToСharacterShop), for: .touchUpInside)
+        changeShopButton.pinLeft(to: view.leadingAnchor, 15)
+        changeShopButton.addTarget(self, action: #selector(goToShopBoosts), for: .touchUpInside)
+        
     }
     
     private func configureShopNameView() {
-        shopNameView.text = "improve cloth"
+      
         shopNameView.backgroundColor = UIColor.gray
         shopNameView.setWidth(150)
         shopNameView.setHeight(50)
         shopNameView.pinTop(to: titleLabel.bottomAnchor, 30)
-        shopNameView.pinLeft(to: view.leadingAnchor, 15)
-    }
+        shopNameView.pinRight(to: view.trailingAnchor, 15)
+        shopNameView.text = "character"
+      
     
-    @objc
-    func backAction() {
         
-        if let navController = navigationController, navController.viewControllers.first != self {
-            navController.popViewController(animated: true)
-        } else {
-            
-            dismiss(animated: true, completion: nil)
-        }
     }
     
     @objc
-    private func goToСharacterShop() {
-        router?.goToCharacterShop()
+    func changeShop() {
+        print("hello")
     }
+    
+//    @objc
+//    func backAction() {
+//        
+//        if let navController = navigationController, navController.viewControllers.first != self {
+//            navController.popViewController(animated: true)
+//        } else {
+//            
+//            dismiss(animated: true, completion: nil)
+//        }
+//    }
 }
 
 // MARK: - MainViewControllerProtocol
 
-extension ShopViewController: ShopViewControllerProtocol {
-    func set(interactor: ShopInteractor) {
+extension ShopCharacterViewController: ShopCharacterViewControllerProtocol {
+    func set(interactor: ShopCharacterInteractor) {
         self.interactor = interactor
     }
     
-    func display(viewModel: ShopViewModel) {
+    func display(viewModel: ShopCharacterViewModel) {
         self.viewModel = viewModel
     }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ShopCharacterViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.improves.count
+        return viewModel.heroes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let improveCell = boosts.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ImproveCell
-        improveCell.improveImageView.image = improveCell.improve?.imageBoost
-        improveCell.setHero(improve: viewModel.improves[indexPath.row])
-        improveCell.improveNameLabel.text = improveCell.improve?.name
-        improveCell.improvePriceLabel.text = improveCell.improve?.price.formatted()
-        improveCell.improveTimeLabel.text = improveCell.improve?.time.formatted()
+        let improveCell = heroes.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HeroCell
+        improveCell.heroImageView.image = improveCell.hero?.imageAwake
+        improveCell.setHero(hero: viewModel.heroes[indexPath.row])
+        improveCell.heroNameLabel.text = improveCell.hero?.name
+        improveCell.heroHPLabel.text = improveCell.hero?.price.formatted()
         improveCell.backgroundColor = .white
         
         if let cell = collectionView.cellForItem(at: indexPath) as? ImproveCell {
@@ -192,13 +193,13 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ImproveCell else { return }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? HeroCell else { return }
         
-        let improve = cell.improve
-        if (MainViewController.balance < improve!.price) { return }
+        let hero = cell.hero
+        if (MainViewController.balance < hero!.price) { return }
         interactor?.didCharacterTapped(index: indexPath.row)
         
-        MainViewController.balance -= improve!.price
+        MainViewController.balance -= hero!.price
         balanceLabel.text = "\(MainViewController.balance)"
     }
     
@@ -206,6 +207,16 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
     private func goToSettings() {
         router?.goToSettings()
     }
+    @objc
+    private func goToShopBoosts() {
+        router?.goToShopBoosts()
+    }
+    @objc
+    private func goToMain() {
+        router?.goToMain()
+    }
     
     
+ 
 }
+

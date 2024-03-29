@@ -23,6 +23,14 @@ final class ShopRouterImp {
 // MARK: - ShopRouter
 
 extension ShopRouterImp: ShopRouter {
+    func goToCharacterShop() {
+        if let viewController = view as? UIViewController {
+            let cshVC = ShopCharacterAssemblyImp().assemble()
+            cshVC.modalPresentationStyle = .fullScreen
+            viewController.present(cshVC, animated: true)
+        }
+    }
+    
     func goToSettings() {
         if let viewController = view as? UIViewController {
             let setVC = SettingsViewController()
@@ -30,6 +38,8 @@ extension ShopRouterImp: ShopRouter {
             viewController.present(setVC, animated: true)
         }
     }
+    
+  
     
 }
 
