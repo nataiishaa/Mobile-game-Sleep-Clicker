@@ -13,7 +13,7 @@ protocol ShopCharacterAssembly {
 
 protocol ShopCharacterViewControllerProtocol: AnyObject, UICollectionViewDelegate, UICollectionViewDataSource {
     func set(interactor: ShopCharacterInteractor)
-    func display(viewModel: ShopCharacterViewModel)
+    func display(viewModel: ShopCharacterViewModel, balance: Int)
 }
 
 protocol ShopCharacterInteractor: AnyObject {
@@ -23,11 +23,12 @@ protocol ShopCharacterInteractor: AnyObject {
 }
 
 protocol ShopCharacterPresenter: AnyObject {
-    func present(model: ShopCharacterModelDTO)
+    func present(model: ShopCharacterModelDTO, balance: Int)
 }
 
 protocol ShopCharacterRouter: AnyObject {
     func goToSettings()
     func goToShopBoosts()
     func goToMain()
+    func showAlert(title: String?, message: String?)
 }

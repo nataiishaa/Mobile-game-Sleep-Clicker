@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="BoostModel" representedClassName="BoostModel" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="rawBoostType" attributeType="String" defaultValueString="cap1"/>
+        <attribute name="timer" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CharacterModel" representedClassName="CharacterModel" syncable="YES">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hp" attributeType="Integer 64" defaultValueString="100" usesScalarValueType="YES"/>
+        <attribute name="lives" attributeType="Integer 64" defaultValueString="3" usesScalarValueType="YES"/>
+        <attribute name="rawCharacterState" attributeType="String" defaultValueString="awake"/>
+        <attribute name="rawCharacterType" attributeType="String" defaultValueString="baby"/>
+        <attribute name="sleepiness" attributeType="Integer 64" defaultValueString="10" usesScalarValueType="YES"/>
+    </entity>
+</model>

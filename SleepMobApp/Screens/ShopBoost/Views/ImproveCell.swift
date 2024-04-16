@@ -8,42 +8,43 @@
 import UIKit
 
 final class ImproveCell: UICollectionViewCell {
-    var improve: Boost?
     
     let improveImageView: UIImageView = {
         return UIImageView()
     }()
     
     let improveNameLabel: UILabel = {
-        return UILabel()
+        let label = UILabel()
+        label.font = .comicoro(size: 15)
+        return label
     }()
     
     let improvePriceLabel: UILabel = {
-        return UILabel()
+        let label = UILabel()
+        label.font = .comicoro(size: 15)
+        return label
     }()
     
-    let improveTimeLabel: UILabel = {
-        return UILabel()
+    let improveDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .comicoro(size: 15)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = #colorLiteral(red: 0.2901960784, green: 0.2509803922, blue: 0.7333333333, alpha: 1)
         configureUI()
-    }
-    var onNameTapped: (() -> Void)?
-    
-    func setHero(improve: Boost) {
-        self.improve = improve
-        configureUI()
-        
     }
     
     private func configureUI() {
-        improveImageView.image = improve?.imageBoost
+        improveImageView.contentMode = .scaleAspectFit
         addSubview(improveImageView)
         addSubview(improveNameLabel)
         addSubview(improvePriceLabel)
-        addSubview(improveTimeLabel)
+        addSubview(improveDescriptionLabel)
         improveImageView.pinCenterX(to: self.centerXAnchor)
         improveImageView.pinTop(to: self.topAnchor, 5)
         improveImageView.setWidth(70)
@@ -52,37 +53,14 @@ final class ImproveCell: UICollectionViewCell {
         improveNameLabel.pinTop(to: improveImageView.bottomAnchor, 5)
         improvePriceLabel.pinCenterX(to: self.centerXAnchor)
         improvePriceLabel.pinTop(to: improveNameLabel.bottomAnchor, 5)
-        improveTimeLabel.pinCenterX(to: self.centerXAnchor)
-        improveTimeLabel.pinTop(to: improvePriceLabel.bottomAnchor, 5)
-        
-        
-        
-        //
-        //        // Добавление жеста касания к heroImageView
-        //                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        //
-        //                heroImageView.isUserInteractionEnabled = true
-        //                heroImageView.addGestureRecognizer(tapGesture)
-        
-        
-        
+        improveDescriptionLabel.pinCenterX(to: self.centerXAnchor)
+        improveDescriptionLabel.pinTop(to: improvePriceLabel.bottomAnchor, 5)
+        improveDescriptionLabel.pinLeft(to: leadingAnchor, 5)
+        improveDescriptionLabel.pinRight(to: trailingAnchor, 5)
     }
-    @objc private func heroNameTapped() {
-        onNameTapped?()
-    }
-    
-    //    @objc private func handleTap() {
-    //            hero.toggleSleepState() // Переключаем состояние сна
-    //
-    //            updateUI() // Обновляем UI
-    //        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func updateUI() {
-        improveImageView.image = improve?.imageBoost
     }
 }
 

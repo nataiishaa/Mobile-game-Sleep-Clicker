@@ -33,14 +33,14 @@ class CustomClockView: UIView {
     
     private func setupTimeLabel() {
         timeLabel = UILabel()
-        timeLabel.font = UIFont.systemFont(ofSize: 40)
-        timeLabel.textColor = .cyan
+        timeLabel.font = .comicoro(size: 30)
+        timeLabel.textColor = .white
         timeLabel.textAlignment = .center
         addSubview(timeLabel)
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            timeLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            timeLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            timeLabel.widthAnchor.constraint(equalTo: widthAnchor),
+            timeLabel.heightAnchor.constraint(equalTo: heightAnchor)
         ])
     }
     

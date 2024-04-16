@@ -18,17 +18,19 @@ final class ShopCharacterPresenterImp {
 // MARK: - MainPresenter
 
 extension ShopCharacterPresenterImp: ShopCharacterPresenter {
-    func present(model: ShopCharacterModelDTO) {
-        let heroes: [Character] = model.items.map {
+    func present(model: ShopCharacterModelDTO, balance: Int) {
+        let heroes: [CharacterViewData] = model.items.map {
             .init(
                 name: $0.type.name,
-                imageAwake: UIImage(named: $0.type.imageAwakeName),
-                imageSleep: UIImage(named: $0.type.imageAwakeName),
-                sleepState: .awake
+                hp: 0,
+                sleepiness: 0, 
+                lives: 0,
+                image: UIImage(named: $0.type.imageBuyName),
+                price: $0.type.price
             )
         }
         let viewModel:ShopCharacterViewModel = .init(heroes: heroes)
-        view?.display(viewModel: viewModel)
+        view?.display(viewModel: viewModel, balance: balance)
     }
 }
 

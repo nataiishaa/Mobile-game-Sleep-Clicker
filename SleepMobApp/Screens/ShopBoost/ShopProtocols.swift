@@ -18,7 +18,7 @@ protocol ShopAssembly {
 
 protocol ShopViewControllerProtocol: AnyObject, UICollectionViewDelegate, UICollectionViewDataSource {
     func set(interactor: ShopInteractor)
-    func display(viewModel: ShopViewModel)
+    func display(viewModel: ShopViewModel, balance: Int)
 }
 
 protocol ShopInteractor: AnyObject {
@@ -28,12 +28,13 @@ protocol ShopInteractor: AnyObject {
 }
 
 protocol ShopPresenter: AnyObject {
-    func present(model: ShopModelDTO)
+    func present(model: ShopModelDTO, balance: Int)
 }
 
 protocol ShopRouter: AnyObject {
     func goToSettings()
     func goToCharacterShop()
+    func showAlert(title: String?, message: String?)
 }
 
 

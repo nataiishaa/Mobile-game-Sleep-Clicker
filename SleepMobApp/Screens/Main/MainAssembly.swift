@@ -10,16 +10,7 @@ final class MainAssemblyImp: MainAssembly {
         let vc = MainViewController()
         let presenter = MainPresenterImp(view: vc)
         
-        let modelDTO: MainModelDTO = .init(
-            items: [
-                .init(type: .baby),
-                .init(type: .student),
-                .init(type: .police),
-                .init(type: .dad),
-                .init(type: .cat),
-                .init(type: .bear)
-            ]
-        )
+        let modelDTO: MainModelDTO = .init()
         let interactor = MainInteractorImp(presenter: presenter, model: modelDTO)
         
         let router = MainRouterImp(interactor: interactor, view: vc)

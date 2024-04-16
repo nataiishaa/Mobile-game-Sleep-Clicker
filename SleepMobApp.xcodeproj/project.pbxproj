@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1F97562BC85E5D00E6BC7E /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97552BC85E5D00E6BC7E /* UserData.swift */; };
+		0C1F97582BCC092500E6BC7E /* Comicoro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C1F97572BCC092500E6BC7E /* Comicoro.ttf */; };
+		0C1F975A2BCC097B00E6BC7E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97592BCC097B00E6BC7E /* Font.swift */; };
+		0C1F975E2BCC4BF800E6BC7E /* ShopCharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F975D2BCC4BF800E6BC7E /* ShopCharacterCollectionViewCell.swift */; };
+		0C1F97622BCD2A2400E6BC7E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97602BCD2A2400E6BC7E /* CoreDataManager.swift */; };
+		0C1F97632BCD2A2400E6BC7E /* FetchRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97612BCD2A2400E6BC7E /* FetchRequester.swift */; };
+		0C1F97672BCD2A7800E6BC7E /* SleepMobApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97652BCD2A7800E6BC7E /* SleepMobApp.xcdatamodeld */; };
+		0C1F976C2BCD325E00E6BC7E /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97682BCD325E00E6BC7E /* CharacterModel.swift */; };
+		0C1F976E2BCD325E00E6BC7E /* BoostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F976A2BCD325E00E6BC7E /* BoostModel.swift */; };
+		0C1F97712BCD65B300E6BC7E /* BoostViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97702BCD65B300E6BC7E /* BoostViewData.swift */; };
+		0C1F97732BCD66E100E6BC7E /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97722BCD66E100E6BC7E /* IntExtension.swift */; };
+		0C1F97752BCD6EA100E6BC7E /* BoostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97742BCD6EA100E6BC7E /* BoostCollectionViewCell.swift */; };
 		491A93F52BB1F76500FC9AC2 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93F42BB1F76500FC9AC2 /* UIColor+.swift */; };
 		491A93FB2BB1FCD900FC9AC2 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FA2BB1FCD900FC9AC2 /* MainRouter.swift */; };
 		491A93FD2BB1FCEB00FC9AC2 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FC2BB1FCEB00FC9AC2 /* MainProtocols.swift */; };
@@ -14,7 +26,6 @@
 		491A94012BB1FD1100FC9AC2 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94002BB1FD1100FC9AC2 /* MainInteractor.swift */; };
 		491A94032BB1FD2000FC9AC2 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94022BB1FD2000FC9AC2 /* MainAssembly.swift */; };
 		491A94052BB204BA00FC9AC2 /* MainModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94042BB204BA00FC9AC2 /* MainModelDTO.swift */; };
-		491A94072BB206D600FC9AC2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94062BB206D600FC9AC2 /* MainViewModel.swift */; };
 		A20246882BA1E405008BA9C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246872BA1E405008BA9C8 /* AppDelegate.swift */; };
 		A202468A2BA1E405008BA9C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246892BA1E405008BA9C8 /* SceneDelegate.swift */; };
 		A20246912BA1E406008BA9C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20246902BA1E406008BA9C8 /* Assets.xcassets */; };
@@ -22,7 +33,7 @@
 		A20246A32BA1E88E008BA9C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A22BA1E88E008BA9C8 /* MainViewController.swift */; };
 		A20246A52BA1E9BA008BA9C8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A42BA1E9BA008BA9C8 /* UIView+.swift */; };
 		A20246A72BA1EC28008BA9C8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A62BA1EC28008BA9C8 /* SettingsViewController.swift */; };
-		A20246A92BA1F34D008BA9C8 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A82BA1F34D008BA9C8 /* Character.swift */; };
+		A20246A92BA1F34D008BA9C8 /* CharacterViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A82BA1F34D008BA9C8 /* CharacterViewData.swift */; };
 		A20246AB2BA20D25008BA9C8 /* CloudButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246AA2BA20D25008BA9C8 /* CloudButtonView.swift */; };
 		A20246AD2BA2204F008BA9C8 /* CloudStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246AC2BA2204F008BA9C8 /* CloudStackView.swift */; };
 		A20246AF2BA237BF008BA9C8 /* AboutDevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246AE2BA237BF008BA9C8 /* AboutDevViewController.swift */; };
@@ -54,6 +65,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1F97552BC85E5D00E6BC7E /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		0C1F97572BCC092500E6BC7E /* Comicoro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comicoro.ttf; sourceTree = "<group>"; };
+		0C1F97592BCC097B00E6BC7E /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		0C1F975D2BCC4BF800E6BC7E /* ShopCharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C1F97602BCD2A2400E6BC7E /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		0C1F97612BCD2A2400E6BC7E /* FetchRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRequester.swift; sourceTree = "<group>"; };
+		0C1F97662BCD2A7800E6BC7E /* SleepMobApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepMobApp.xcdatamodel; sourceTree = "<group>"; };
+		0C1F97682BCD325E00E6BC7E /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		0C1F976A2BCD325E00E6BC7E /* BoostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostModel.swift; sourceTree = "<group>"; };
+		0C1F97702BCD65B300E6BC7E /* BoostViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostViewData.swift; sourceTree = "<group>"; };
+		0C1F97722BCD66E100E6BC7E /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		0C1F97742BCD6EA100E6BC7E /* BoostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostCollectionViewCell.swift; sourceTree = "<group>"; };
 		491A93F42BB1F76500FC9AC2 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		491A93FA2BB1FCD900FC9AC2 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		491A93FC2BB1FCEB00FC9AC2 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
@@ -61,7 +84,6 @@
 		491A94002BB1FD1100FC9AC2 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		491A94022BB1FD2000FC9AC2 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		491A94042BB204BA00FC9AC2 /* MainModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelDTO.swift; sourceTree = "<group>"; };
-		491A94062BB206D600FC9AC2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A20246842BA1E405008BA9C8 /* SleepMobApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepMobApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20246872BA1E405008BA9C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A20246892BA1E405008BA9C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +93,7 @@
 		A20246A22BA1E88E008BA9C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A20246A42BA1E9BA008BA9C8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		A20246A62BA1EC28008BA9C8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A20246A82BA1F34D008BA9C8 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		A20246A82BA1F34D008BA9C8 /* CharacterViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewData.swift; sourceTree = "<group>"; };
 		A20246AA2BA20D25008BA9C8 /* CloudButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudButtonView.swift; sourceTree = "<group>"; };
 		A20246AC2BA2204F008BA9C8 /* CloudStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudStackView.swift; sourceTree = "<group>"; };
 		A20246AE2BA237BF008BA9C8 /* AboutDevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +135,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1F975F2BCD2A0F00E6BC7E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0C1F97602BCD2A2400E6BC7E /* CoreDataManager.swift */,
+				0C1F97612BCD2A2400E6BC7E /* FetchRequester.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0C1F97642BCD2A2D00E6BC7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C1F97682BCD325E00E6BC7E /* CharacterModel.swift */,
+				0C1F976A2BCD325E00E6BC7E /* BoostModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		491A93EF2BB1F55D00FC9AC2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +185,7 @@
 		491A93F12BB1F64100FC9AC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C1F97572BCC092500E6BC7E /* Comicoro.ttf */,
 				A2069A0D2BA3ACD40098365A /* Sounds */,
 				A20246902BA1E406008BA9C8 /* Assets.xcassets */,
 				A20246922BA1E406008BA9C8 /* LaunchScreen.storyboard */,
@@ -165,6 +206,8 @@
 			children = (
 				A20246A42BA1E9BA008BA9C8 /* UIView+.swift */,
 				491A93F42BB1F76500FC9AC2 /* UIColor+.swift */,
+				0C1F97592BCC097B00E6BC7E /* Font.swift */,
+				0C1F97722BCD66E100E6BC7E /* IntExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,11 +267,15 @@
 			children = (
 				A20246872BA1E405008BA9C8 /* AppDelegate.swift */,
 				A20246892BA1E405008BA9C8 /* SceneDelegate.swift */,
+				0C1F97642BCD2A2D00E6BC7E /* Models */,
+				0C1F975F2BCD2A0F00E6BC7E /* CoreData */,
+				0C1F97552BC85E5D00E6BC7E /* UserData.swift */,
 				A20246952BA1E406008BA9C8 /* Info.plist */,
 				491A93F32BB1F71C00FC9AC2 /* Extensions */,
 				491A93F12BB1F64100FC9AC2 /* Resources */,
 				491A93EF2BB1F55D00FC9AC2 /* Screens */,
 				491A93F22BB1F6BC00FC9AC2 /* Services */,
+				0C1F97652BCD2A7800E6BC7E /* SleepMobApp.xcdatamodeld */,
 			);
 			path = SleepMobApp;
 			sourceTree = "<group>";
@@ -238,6 +285,7 @@
 			children = (
 				A20246B22BA31E2E008BA9C8 /* HeroCell.swift */,
 				A23EBDE52BB702A5003786E7 /* CustomClockView.swift */,
+				0C1F97742BCD6EA100E6BC7E /* BoostCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,9 +293,9 @@
 		A20246A12BA1E848008BA9C8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A20246A82BA1F34D008BA9C8 /* Character.swift */,
+				A20246A82BA1F34D008BA9C8 /* CharacterViewData.swift */,
 				491A94042BB204BA00FC9AC2 /* MainModelDTO.swift */,
-				491A94062BB206D600FC9AC2 /* MainViewModel.swift */,
+				0C1F97702BCD65B300E6BC7E /* BoostViewData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -272,7 +320,6 @@
 		A23EBDEA2BB70ABC003786E7 /* ShopCharacter */ = {
 			isa = PBXGroup;
 			children = (
-				A23EBDFE2BB74D7E003786E7 /* Views */,
 				A23EBDED2BB7488E003786E7 /* Models */,
 				A23EBDEE2BB74919003786E7 /* ShopCharacterRouter.swift */,
 				A23EBDF62BB749AF003786E7 /* ShopCharacterViewController.swift */,
@@ -280,6 +327,7 @@
 				A23EBDF02BB74939003786E7 /* ShopCharacterProtocols.swift */,
 				A23EBDF42BB7496A003786E7 /* ShopCharacterAssembly.swift */,
 				A23EBDF82BB749D9003786E7 /* ShopCharacterInteractor.swift */,
+				0C1F975D2BCC4BF800E6BC7E /* ShopCharacterCollectionViewCell.swift */,
 			);
 			path = ShopCharacter;
 			sourceTree = "<group>";
@@ -291,13 +339,6 @@
 				A23EBDFC2BB74A3D003786E7 /* ShopCharacterModelDTO.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A23EBDFE2BB74D7E003786E7 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		A2E9DB812BB222540062C797 /* ShopBoost */ = {
@@ -394,6 +435,7 @@
 				A2069A112BA3AE8B0098365A /* backgroundMusic.wav in Resources */,
 				A2069A0F2BA3ADC00098365A /* Cat.wav in Resources */,
 				A20246942BA1E406008BA9C8 /* LaunchScreen.storyboard in Resources */,
+				0C1F97582BCC092500E6BC7E /* Comicoro.ttf in Resources */,
 				A20246912BA1E406008BA9C8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +457,12 @@
 				A20246AD2BA2204F008BA9C8 /* CloudStackView.swift in Sources */,
 				A23EBDF32BB7494B003786E7 /* ShopCharacterPresenter.swift in Sources */,
 				A2E9DB852BB313F90062C797 /* Boost.swift in Sources */,
+				0C1F97712BCD65B300E6BC7E /* BoostViewData.swift in Sources */,
+				0C1F976C2BCD325E00E6BC7E /* CharacterModel.swift in Sources */,
+				0C1F976E2BCD325E00E6BC7E /* BoostModel.swift in Sources */,
+				0C1F975A2BCC097B00E6BC7E /* Font.swift in Sources */,
 				A23EBDF52BB7496A003786E7 /* ShopCharacterAssembly.swift in Sources */,
+				0C1F97562BC85E5D00E6BC7E /* UserData.swift in Sources */,
 				A23EBDFB2BB74A1E003786E7 /* ShopCharacterViewModel.swift in Sources */,
 				A23EBDFD2BB74A3D003786E7 /* ShopCharacterModelDTO.swift in Sources */,
 				A20246A32BA1E88E008BA9C8 /* MainViewController.swift in Sources */,
@@ -423,10 +470,14 @@
 				A20E04622BB3506900289357 /* ShopInteractor.swift in Sources */,
 				491A94012BB1FD1100FC9AC2 /* MainInteractor.swift in Sources */,
 				A2069A162BA3D9900098365A /* DemoViewController.swift in Sources */,
+				0C1F97732BCD66E100E6BC7E /* IntExtension.swift in Sources */,
 				A23EBDF12BB74939003786E7 /* ShopCharacterProtocols.swift in Sources */,
+				0C1F97672BCD2A7800E6BC7E /* SleepMobApp.xcdatamodeld in Sources */,
 				491A93FB2BB1FCD900FC9AC2 /* MainRouter.swift in Sources */,
+				0C1F97622BCD2A2400E6BC7E /* CoreDataManager.swift in Sources */,
 				A20246882BA1E405008BA9C8 /* AppDelegate.swift in Sources */,
 				A20246A52BA1E9BA008BA9C8 /* UIView+.swift in Sources */,
+				0C1F975E2BCC4BF800E6BC7E /* ShopCharacterCollectionViewCell.swift in Sources */,
 				A2E9DB942BB3201D0062C797 /* ShopPresenter.swift in Sources */,
 				A2E9DB8E2BB31FB10062C797 /* ShopRouter.swift in Sources */,
 				491A93FD2BB1FCEB00FC9AC2 /* MainProtocols.swift in Sources */,
@@ -434,13 +485,14 @@
 				A23EBDE62BB702A5003786E7 /* CustomClockView.swift in Sources */,
 				A2E9DB922BB31FF70062C797 /* ShopProtocols.swift in Sources */,
 				A20246AF2BA237BF008BA9C8 /* AboutDevViewController.swift in Sources */,
-				491A94072BB206D600FC9AC2 /* MainViewModel.swift in Sources */,
 				A20246B32BA31E2E008BA9C8 /* HeroCell.swift in Sources */,
 				491A94032BB1FD2000FC9AC2 /* MainAssembly.swift in Sources */,
 				A2E9DB962BB320520062C797 /* ShopAssembly.swift in Sources */,
 				A2E9DB892BB318600062C797 /* ShopViewModel.swift in Sources */,
+				0C1F97632BCD2A2400E6BC7E /* FetchRequester.swift in Sources */,
 				A20246AB2BA20D25008BA9C8 /* CloudButtonView.swift in Sources */,
-				A20246A92BA1F34D008BA9C8 /* Character.swift in Sources */,
+				0C1F97752BCD6EA100E6BC7E /* BoostCollectionViewCell.swift in Sources */,
+				A20246A92BA1F34D008BA9C8 /* CharacterViewData.swift in Sources */,
 				A20246A72BA1EC28008BA9C8 /* SettingsViewController.swift in Sources */,
 				A202468A2BA1E405008BA9C8 /* SceneDelegate.swift in Sources */,
 				A2E9DB872BB3162F0062C797 /* ShopModelDTO.swift in Sources */,
@@ -655,6 +707,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0C1F97652BCD2A7800E6BC7E /* SleepMobApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0C1F97662BCD2A7800E6BC7E /* SleepMobApp.xcdatamodel */,
+			);
+			currentVersion = 0C1F97662BCD2A7800E6BC7E /* SleepMobApp.xcdatamodel */;
+			name = SleepMobApp.xcdatamodeld;
+			path = SleepMobApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A202467C2BA1E404008BA9C8 /* Project object */;
 }

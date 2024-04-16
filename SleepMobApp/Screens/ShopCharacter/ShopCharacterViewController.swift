@@ -19,6 +19,7 @@ final class ShopCharacterViewController: UIViewController {
         }
     }
     
+    private let backButton = UIButton()
     private let titleLabel = UILabel()
     private let balanceIconImageView = UIImageView()
     private let settingsButton = UIButton()
@@ -26,52 +27,94 @@ final class ShopCharacterViewController: UIViewController {
     private let balanceLabel = UILabel()
     private let changeShopButton = UIButton()
     private let shopNameView = UILabel()
-    private let backButton = UIButton()
     
-    private let cellId = "improve"
+    private let cellId = "ShopCharacterCollectionViewCell"
     private var heroes: UICollectionView!
     
     func configureUI(){
-        view.addSubview(titleLabel)
-        view.addSubview(balanceLabel)
-        configureTitleLable()
         configureHeroes()
+        view.addSubview(titleLabel)
+        view.addSubview(changeShopButton)
+        view.addSubview(shopNameView)
+        view.addSubview(balanceStackView)
+        view.addSubview(settingsButton)
+        configureBalanceStackView()
+        configureTitleLable()
         configureBackButton()
         configureBalanceLabel()
-        view.addSubview(settingsButton)
         configureSettingsButton()
-        view.addSubview(changeShopButton)
         configureChangeShopButton()
-        view.addSubview(shopNameView)
         configureShopNameView()
-        view.addSubview(backButton)
-        configureBackButton()
+    }
+    
+    func configureBalanceStackView() {
+        // Настройка иконки баланса
+        balanceIconImageView.image = UIImage(named: "balance")
+        
+        // Настройка стека
+        balanceStackView.axis = .horizontal
+        balanceStackView.alignment = .center
+        balanceStackView.distribution = .fill
+        balanceStackView.spacing = 8 // Расстояние между элементами
+        
+        // Добавление элементов в стек
+        balanceStackView.addArrangedSubview(balanceIconImageView)
+        balanceStackView.addArrangedSubview(balanceLabel)
+        
+        balanceStackView.translatesAutoresizingMaskIntoConstraints = false
+        balanceIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Констрейнты для стека
+        NSLayoutConstraint.activate([
+            balanceStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
+            balanceStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 4),
+            balanceIconImageView.heightAnchor.constraint(equalToConstant: 37), // Высота иконки
+            balanceIconImageView.widthAnchor.constraint(equalToConstant: 47), // Ширина иконки
+        ])
+    }
+    
+    func configureTitleLable() {
+        // Настройка titleLabel
+        let colorOne = #colorLiteral(red: 0.8433896899, green: 0.7258818746, blue: 0.7231372595, alpha: 1)
+        let colorTwo = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
+        
+        titleLabel.attributedText = NSAttributedString(string: "Shop", attributes: [.strokeColor: colorTwo,
+                                                                                       .foregroundColor: colorOne,
+                                                                                       .strokeWidth: -3,
+                                                                                       .font: UIFont.comicoro(size: 80)])
+        titleLabel.textAlignment = .center
+        titleLabel.layer.shadowRadius = 2
+        titleLabel.layer.shadowOffset = .init(width: 0, height: 4)
+        titleLabel.layer.shadowOpacity = 0.25
+        titleLabel.layer.shadowColor = UIColor.black.cgColor
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: balanceStackView.bottomAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    func configureBalanceLabel() {
+        balanceLabel.text = "0"
+        balanceLabel.font = .comicoro(size: 30)
+        balanceLabel.textColor = .white
     }
     
     func configureSettingsButton() {
         // Настройка settingsButton
         settingsButton.setImage(UIImage(named: "settingsIcon"), for: .normal)
         settingsButton.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
-        settingsButton.pinLeft(to: titleLabel.trailingAnchor, 30)
-        settingsButton.pinCenterY(to: titleLabel.centerYAnchor)
-    }
-    
-    func configureTitleLable() {
-        // Настройка titleLabel
-        titleLabel.text = "Shop"
-        titleLabel.font = UIFont.systemFont(ofSize: 25)
-        titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
-        titleLabel.pinCenterX(to: view)
-        titleLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 15)
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
         
-    }
-    
-    func configureBalanceLabel() {
-        balanceLabel.text = "\(MainViewController.balance)"
-        balanceLabel.textColor = .white
-        balanceLabel.pinCenterX(to: view.centerXAnchor)
-        balanceLabel.pinTop(to: titleLabel.bottomAnchor, 10)
+        NSLayoutConstraint.activate([
+            settingsButton.trailingAnchor.constraint(equalTo: backButton.leadingAnchor),
+            settingsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
+            settingsButton.widthAnchor.constraint(equalToConstant: 49),
+            settingsButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
     }
     
     
@@ -96,52 +139,65 @@ final class ShopCharacterViewController: UIViewController {
         heroes = UICollectionView(frame: rect, collectionViewLayout: layout)
         heroes.dataSource = self
         heroes.delegate = self
-        heroes.register(HeroCell.self, forCellWithReuseIdentifier: cellId)
+        heroes.register(ShopCharacterCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         heroes.showsVerticalScrollIndicator = true
         heroes.backgroundColor = .clear
         heroes.layer.masksToBounds = true
         view.addSubview(heroes)
+        
+        heroes.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            heroes.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            heroes.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            heroes.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     private func configureBackButton() {
         backButton.setImage(UIImage(named: "back"), for: .normal)
+        //backButton.setTitle("Back", for: .normal)
         backButton.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
+        
+        // Добавляем кнопку на view и отключаем autoresizing mask
         backButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backButton)
         
+        
         NSLayoutConstraint.activate([
-            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            backButton.widthAnchor.constraint(equalToConstant: 60),
-            backButton.heightAnchor.constraint(equalToConstant: 40)
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25), // Отступ сверху от safe area
+            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0), // Отступ справа от safe area
+            backButton.widthAnchor.constraint(equalToConstant: 89), // Ширина кнопки
+            backButton.heightAnchor.constraint(equalToConstant: 38) // Высота кнопки
         ])
     }
     
     private func configureChangeShopButton() {
         changeShopButton.setTitle("improve cloth", for: .normal)
         changeShopButton.backgroundColor = UIColor.gray
-        changeShopButton.setWidth(150)
-        changeShopButton.setHeight(50)
+        let width = view.bounds.width / 2 - 12
+        changeShopButton.setWidth(width)
+        changeShopButton.setHeight(67)
         changeShopButton.pinTop(to: titleLabel.bottomAnchor, 30)
-        changeShopButton.pinLeft(to: view.leadingAnchor, 15)
+        changeShopButton.pinLeft(to: view.leadingAnchor, 8)
         changeShopButton.addTarget(self, action: #selector(goToShopBoosts), for: .touchUpInside)
+        changeShopButton.titleLabel?.font = .comicoro(size: 30)
         
+        NSLayoutConstraint.activate([
+            changeShopButton.bottomAnchor.constraint(equalTo: heroes.topAnchor, constant: -8)
+        ])
     }
     
     private func configureShopNameView() {
         
         shopNameView.backgroundColor = UIColor.gray
-        shopNameView.setWidth(150)
-        shopNameView.setHeight(50)
+        let width = view.bounds.width / 2 - 12
+        shopNameView.setWidth(width)
+        shopNameView.setHeight(67)
         shopNameView.pinTop(to: titleLabel.bottomAnchor, 30)
-        shopNameView.pinRight(to: view.trailingAnchor, 15)
+        shopNameView.pinRight(to: view.trailingAnchor, 8)
         shopNameView.text = "character"
-        
-        
-        
+        shopNameView.textAlignment = .center
     }
-    
-    
-    
 }
 
 // MARK: - MainViewControllerProtocol
@@ -151,8 +207,9 @@ extension ShopCharacterViewController: ShopCharacterViewControllerProtocol {
         self.interactor = interactor
     }
     
-    func display(viewModel: ShopCharacterViewModel) {
+    func display(viewModel: ShopCharacterViewModel, balance: Int) {
         self.viewModel = viewModel
+        self.balanceLabel.text = String(balance)
     }
 }
 
@@ -164,30 +221,16 @@ extension ShopCharacterViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let improveCell = heroes.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HeroCell
-        improveCell.heroImageView.image = improveCell.hero?.imageAwake
-        improveCell.setHero(hero: viewModel.heroes[indexPath.row])
-        improveCell.heroNameLabel.text = improveCell.hero?.name
-        improveCell.heroHPLabel.text = improveCell.hero?.price.formatted()
-        improveCell.backgroundColor = .white
+        let hero = viewModel.heroes[indexPath.row]
+        let improveCell = heroes.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ShopCharacterCollectionViewCell
         
-        if let cell = collectionView.cellForItem(at: indexPath) as? ImproveCell {
-            cell.updateUI()
-        }
+        improveCell.configure(hero: hero)
         
         return improveCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? HeroCell else { return }
-        
-        let hero = cell.hero
-        if (MainViewController.balance < hero!.price) { return }
         interactor?.didCharacterTapped(index: indexPath.row)
-        
-        MainViewController.balance -= hero!.price
-        balanceLabel.text = "\(MainViewController.balance)"
     }
     
     @objc

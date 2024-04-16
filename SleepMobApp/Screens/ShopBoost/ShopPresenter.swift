@@ -19,14 +19,16 @@ final class ShopPresenterImp {
 // MARK: - MainPresenter
 
 extension ShopPresenterImp: ShopPresenter {
-    func present(model: ShopModelDTO) {
+    func present(model: ShopModelDTO, balance: Int) {
         let improves: [Boost] = model.items.map {
             .init(
                 name: $0.type.name,
-                imageBoost: UIImage(named: $0.type.imageAwakeName)
+                descriptionBoost: $0.type.descriptionBoost, 
+                price: $0.type.price,
+                imageBoost: UIImage(named: $0.type.imageBoostName)
             )
         }
         let viewModel: ShopViewModel = .init(improves: improves)
-        view?.display(viewModel: viewModel)
+        view?.display(viewModel: viewModel, balance: balance)
     }
 }

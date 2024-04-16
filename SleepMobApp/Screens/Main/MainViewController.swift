@@ -11,13 +11,15 @@ final class MainViewController: UIViewController {
     private var interactor: MainInteractor?
     private var router: MainRouter?
     
-    static var balance = 0
-    
-    var viewModel: MainViewModel = .init(
-        characters: []
-    ) {
+    var charactersViewData = [CharacterViewData]() {
         didSet {
             heroes.reloadData()
+        }
+    }
+    
+    var boostsViewData = [BoostViewData]() {
+        didSet {
+            boostCollectionView.reloadData()
         }
     }
     
@@ -28,6 +30,7 @@ final class MainViewController: UIViewController {
     private let balanceLabel = UILabel()
     private let balanceStackView = UIStackView()
     private let timer = CustomClockView()
+    private var boostCollectionView: UICollectionView!
     
     private let cellId = "hero"
     private var heroes: UICollectionView!
@@ -38,7 +41,9 @@ final class MainViewController: UIViewController {
         view.addSubview(shopButton)
         view.addSubview(balanceLabel)
         view.addSubview(timer)
+        view.addSubview(balanceStackView)
         configureTitleLable()
+        configureBoostCollectionView()
         configureShopButton()
         configureSettingsButton()
         configureHeroes()
@@ -46,28 +51,45 @@ final class MainViewController: UIViewController {
         configureTimer()
     }
     
-    func configureTimer(){
-        timer.pinLeft(to: view.leadingAnchor, 70)
-        timer.pinTop(to: titleLabel.bottomAnchor, 10)
-        timer.setWidth(50)
-        timer.setHeight(30)
+    func configureBoostCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.itemSize = .init(width: 70, height: 50)
+        boostCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        boostCollectionView.dataSource = self
+        boostCollectionView.register(BoostCollectionViewCell.self, forCellWithReuseIdentifier: "BoostCollectionViewCell")
+        boostCollectionView.backgroundColor = .clear
+        boostCollectionView.layer.masksToBounds = true
+        view.addSubview(boostCollectionView)
+        boostCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            boostCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            boostCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            boostCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            boostCollectionView.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
     
+    func configureTimer(){
+        timer.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            timer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 21),
+            timer.topAnchor.constraint(equalTo: boostCollectionView.bottomAnchor, constant: 10),
+            timer.heightAnchor.constraint(equalToConstant: 25)
+        ])
+    }
     
     func configureBalanceStackView() {
         // Настройка иконки баланса
         balanceIconImageView.image = UIImage(named: "balance")
-        balanceIconImageView.setWidth(100)
-        balanceIconImageView.setHeight(70)
-        
-        // Настройка лейбла баланса
-        balanceLabel.text = " \(MainViewController.balance)"
-        balanceLabel.textColor = .white
         
         // Настройка стека
         balanceStackView.axis = .horizontal
         balanceStackView.alignment = .center
-        balanceStackView.distribution = .fillProportionally
+        balanceStackView.distribution = .fill
         balanceStackView.spacing = 8 // Расстояние между элементами
         
         // Добавление элементов в стек
@@ -75,41 +97,59 @@ final class MainViewController: UIViewController {
         balanceStackView.addArrangedSubview(balanceLabel)
         
         balanceStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(balanceStackView)
+        balanceIconImageView.translatesAutoresizingMaskIntoConstraints = false
         
         // Констрейнты для стека
         NSLayoutConstraint.activate([
-            balanceStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            balanceStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            balanceIconImageView.heightAnchor.constraint(equalToConstant: 100), // Высота иконки
-            balanceIconImageView.widthAnchor.constraint(equalToConstant: 100) // Ширина иконки
+            balanceStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
+            balanceStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 4),
+            balanceIconImageView.heightAnchor.constraint(equalToConstant: 37), // Высота иконки
+            balanceIconImageView.widthAnchor.constraint(equalToConstant: 47), // Ширина иконки
         ])
     }
     
     func configureTitleLable() {
         // Настройка titleLabel
-        titleLabel.text = "World of Sweet Dreams"
-        titleLabel.font = UIFont.systemFont(ofSize: 25)
-        titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
-        titleLabel.pinCenterX(to: view)
-        titleLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 15)
+        let colorOne = #colorLiteral(red: 0.8433896899, green: 0.7258818746, blue: 0.7231372595, alpha: 1)
+        let colorTwo = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
         
+        titleLabel.attributedText = NSAttributedString(string: "World of sweet dreams 🌙", attributes: [.strokeColor: colorTwo,
+                                                                                       .foregroundColor: colorOne,
+                                                                                       .strokeWidth: -3,
+                                                                                       .font: UIFont.comicoro(size: 30)])
+        titleLabel.textAlignment = .center
+        titleLabel.layer.shadowRadius = 2
+        titleLabel.layer.shadowOffset = .init(width: 0, height: 4)
+        titleLabel.layer.shadowOpacity = 0.25
+        titleLabel.layer.shadowColor = UIColor.black.cgColor
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            titleLabel.topAnchor.constraint(equalTo: balanceStackView.bottomAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            titleLabel.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
     
     func configureBalanceLabel() {
-        balanceLabel.text = "\(MainViewController.balance)"
+        balanceLabel.text = "0"
+        balanceLabel.font = .comicoro(size: 30)
         balanceLabel.textColor = .white
-        balanceLabel.pinCenterX(to: view.centerXAnchor)
-        balanceLabel.pinTop(to: titleLabel.bottomAnchor, 10)
     }
     
     func configureSettingsButton() {
         // Настройка settingsButton
         settingsButton.setImage(UIImage(named: "settingsIcon"), for: .normal)
         settingsButton.addTarget(self, action: #selector(goToSettings), for: .touchUpInside)
-        settingsButton.pinLeft(to: titleLabel.trailingAnchor, 30)
-        settingsButton.pinCenterY(to: titleLabel.centerYAnchor)
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            settingsButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -4),
+            settingsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
+            settingsButton.widthAnchor.constraint(equalToConstant: 49),
+            settingsButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
     }
     @objc
     private func goToSettings() {
@@ -135,14 +175,18 @@ final class MainViewController: UIViewController {
         configureBalanceStackView()
         heroes.delegate = self
         heroes.dataSource = self
-        
-        interactor?.activate()
         self.router = MainRouterImp(interactor: interactor!, view: self)
-        
-        // Запуск таймера
-            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(checkCharacters), userInfo: nil, repeats: true)
-        
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.showCharacters()
+        interactor?.startTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor?.stopTimer()
     }
     
     private func configureHeroes() {
@@ -159,6 +203,14 @@ final class MainViewController: UIViewController {
         heroes.backgroundColor = .clear
         heroes.layer.masksToBounds = true
         view.addSubview(heroes)
+        heroes.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            heroes.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            heroes.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            heroes.topAnchor.constraint(equalTo: timer.bottomAnchor),
+            heroes.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
     
 }
@@ -170,8 +222,14 @@ extension MainViewController: MainViewControllerProtocol {
         self.interactor = interactor
     }
     
-    func display(viewModel: MainViewModel) {
-        self.viewModel = viewModel
+    func display(viewModel: [CharacterViewData], balance: Int) {
+        charactersViewData = viewModel
+        balanceLabel.text = String(balance)
+    }
+    
+    func display(boostViewData: [BoostViewData], autoClick: Bool) {
+        boostsViewData = boostViewData
+        heroes.allowsSelection = !autoClick
     }
 }
 
@@ -179,77 +237,51 @@ extension MainViewController: MainViewControllerProtocol {
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.characters.count
+        if collectionView == heroes {
+            return charactersViewData.count
+        } else if collectionView == boostCollectionView {
+            return boostsViewData.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let heroCell = heroes.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HeroCell
-        if(heroCell.hero?.sleepState == .awake) {
-            heroCell.heroImageView.image = heroCell.hero?.imageAwake
+        if collectionView == heroes {
+            let hero = charactersViewData[indexPath.row]
+            let cell = heroes.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HeroCell
+            cell.configure(hero: hero)
+            return cell
+        } else if collectionView == boostCollectionView {
+            let boost = boostsViewData[indexPath.row]
+            let cell = boostCollectionView.dequeueReusableCell(withReuseIdentifier: "BoostCollectionViewCell", for: indexPath) as! BoostCollectionViewCell
+            cell.boostImageView.image = boost.imageBoost
+            cell.timerLabel.text = boost.timer
+            return cell
         } else {
-            heroCell.heroImageView.image = heroCell.hero?.imageSleep
+            return UICollectionViewCell()
         }
-        heroCell.setHero(hero: viewModel.characters[indexPath.row])
-        heroCell.heroNameLabel.text = heroCell.hero?.name
-        heroCell.heroHPLabel.text = heroCell.hero?.hp.formatted()
-        heroCell.heroSleepinessLabel.text = heroCell.hero?.sleepiness.formatted()
-        heroCell.backgroundColor = UIColor(hex: "4A40BB")
-        //heroCell.backgroundColor = .white
-        
-        if let cell = collectionView.cellForItem(at: indexPath) as? HeroCell {
-            cell.updateUI()
-        }
-        
-        return heroCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? HeroCell else { return }
-        
-        let hero = cell.hero
-//        if (hero!.sleepState == MainModelDTO.SleepState.asleep) {
-//            hero!.stopSleeping()
-//        } else {
-//            hero!.startSleeping()
-//        }
         interactor?.didCharacterTapped(index: indexPath.row)
-        
-        //cell.heroImageView.image = hero?.sleepState == .awake ? hero?.imageAwake : hero?.imageSleep
-        
-        cell.heroHPLabel.text = hero!.hp.formatted()
-        cell.updateUI()
-        MainViewController.balance += 1
-        balanceLabel.text = "\(MainViewController.balance)"
     }
-    
     
     func configureShopButton() {
         // Настройка shopButton
         shopButton.setImage(UIImage(named: "shopIcon"), for: .normal)
         shopButton.addTarget(self, action: #selector(goToShop), for: .touchUpInside)
-        shopButton.pinLeft(to: titleLabel.trailingAnchor,-3)
-        shopButton.pinCenterY(to: titleLabel.centerYAnchor)
+        shopButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            shopButton.widthAnchor.constraint(equalToConstant: 54),
+            shopButton.heightAnchor.constraint(equalToConstant: 56),
+            shopButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            shopButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: 3)
+        ])
     }
     @objc
     private func goToShop() {
         router?.goToShop()
     }
-    
-    @objc func checkCharacters() {
-        // Перебор всех персонажей и обновление их состояния
-        for (index, character) in viewModel.characters.enumerated() {
-            if character.sleepState == .asleep {
-                // Если персонаж спит, проверяем продолжительность сна и обновляем hp
-                character.stopSleeping() // Этот метод уже обновляет hp в зависимости от времени сна
-                // Принудительно обновляем UI для отображения изменений
-                if let cell = heroes.cellForItem(at: IndexPath(row: index, section: 0)) as? HeroCell {
-                    cell.heroHPLabel.text = character.hp.formatted()
-                }
-            }
-        }
-        balanceLabel.text = "\(MainViewController.balance)"
-    }
-
-    
 }

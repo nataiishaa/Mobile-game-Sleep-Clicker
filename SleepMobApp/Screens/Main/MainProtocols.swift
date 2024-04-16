@@ -11,17 +11,21 @@ protocol MainAssembly {
 
 protocol MainViewControllerProtocol: AnyObject, UICollectionViewDelegate, UICollectionViewDataSource {
     func set(interactor: MainInteractor)
-    func display(viewModel: MainViewModel)
+    func display(viewModel: [CharacterViewData], balance: Int)
+    func display(boostViewData: [BoostViewData], autoClick: Bool)
 }
 
 protocol MainInteractor: AnyObject {
     func set(router: MainRouter)
-    func activate()
+    func showCharacters()
     func didCharacterTapped(index: Int)
+    func startTimer()
+    func stopTimer()
 }
 
 protocol MainPresenter: AnyObject {
-    func present(model: MainModelDTO)
+    func show(characters: [CharacterModel], balance: Int)
+    func show(boosts: [BoostModel])
 }
 
 protocol MainRouter: AnyObject {

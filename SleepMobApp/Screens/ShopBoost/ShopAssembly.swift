@@ -17,7 +17,6 @@ final class ShopAssemblyImp: ShopAssembly {
                 .init(type: .cap2),
                 .init(type: .mask),
                 .init(type: .fairy),
-             
             ]
         )
         let interactor = ShopInteractorImp(presenter: presenter, model: modelDTO)

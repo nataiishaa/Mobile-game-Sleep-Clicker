@@ -8,102 +8,143 @@
 import UIKit
 
 final class HeroCell: UICollectionViewCell {
-    var hero: Character?
     
-    let heroImageView: UIImageView = {
-        return UIImageView()
-    }()
+    var heroImageView: UIImageView!
+    var heroNameLabel: UILabel!
+    var heartOneImageView: UIImageView!
+    var heartTwoImageView: UIImageView!
+    var heartThreeImageView: UIImageView!
+    var batteryImageView: UIImageView!
+    var heroHPLabel: UILabel!
     
-    let heroNameLabel: UILabel = {
-        return UILabel()
-    }()
+    var lives = 3 {
+        didSet {
+            heartOneImageView.isHidden = lives <= 0
+            heartTwoImageView.isHidden = lives <= 1
+            heartThreeImageView.isHidden = lives <= 2
+        }
+    }
     
-    let heroHPLabel: UILabel = {
-        return UILabel()
-    }()
-    
-    let heroSleepinessLabel: UILabel = {
-        return UILabel()
-    }()
+    var sleepiness = 10 {
+        didSet {
+            if sleepiness <= 20 {
+                batteryImageView.image = .batteryLow
+            } else if sleepiness >= 80 {
+                batteryImageView.image = .batteryHigh
+            } else {
+                batteryImageView.image = .batteryMiddle
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        setupUI()
+        setupConstraints()
     }
-    var onNameTapped: (() -> Void)?
-    
-    func setHero(hero: Character) {
-        self.hero = hero
-        configureUI()
-        
-    }
-    
-    private func configureUI() {
-        heroImageView.image = hero?.sleepState == .awake ? hero?.imageAwake : hero?.imageSleep
-        addSubview(heroImageView)
-        addSubview(heroNameLabel)
-        addSubview(heroHPLabel)
-        addSubview(heroSleepinessLabel)
-        heroImageView.pinCenterX(to: self.centerXAnchor)
-        heroImageView.pinTop(to: self.topAnchor, 5)
-        heroImageView.setWidth(70)
-        heroImageView.setHeight(120)
-        heroNameLabel.pinCenterX(to: self.centerXAnchor)
-        heroNameLabel.pinTop(to: heroImageView.bottomAnchor, 5)
-        heroHPLabel.pinCenterX(to: self.centerXAnchor)
-        heroHPLabel.pinTop(to: heroNameLabel.bottomAnchor, 5)
-        heroSleepinessLabel.pinCenterX(to: self.centerXAnchor)
-        heroSleepinessLabel.pinTop(to: heroHPLabel.bottomAnchor, 5)
-        
-        
-        
-        //
-        //        // Добавление жеста касания к heroImageView
-        //                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        //
-        //                heroImageView.isUserInteractionEnabled = true
-        //                heroImageView.addGestureRecognizer(tapGesture)
-        
-        
-        
-    }
-    @objc private func heroNameTapped() {
-        onNameTapped?()
-    }
-    
-    //    @objc private func handleTap() {
-    //            hero.toggleSleepState() // Переключаем состояние сна
-    //
-    //            updateUI() // Обновляем UI
-    //        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateUI() {
-        heroHPLabel.text = "\(hero!.hp)"
-        heroImageView.image = hero?.sleepState == .awake ? hero?.imageAwake : hero?.imageSleep
+    func configure(hero: CharacterViewData) {
+        heroImageView.image = hero.image
+        lives = hero.lives
+        sleepiness = hero.sleepiness
+        
+        let colorOne = #colorLiteral(red: 0.8433896899, green: 0.7258818746, blue: 0.7231372595, alpha: 1)
+        let colorTwo = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
+        
+        heroNameLabel.attributedText = NSAttributedString(string: hero.name, attributes: [.strokeColor: colorTwo,
+                                                                                          .foregroundColor: colorOne,
+                                                                                          .strokeWidth: 8,
+                                                                                          .font: UIFont.comicoro(size: 12)])
+        
+        heroHPLabel.attributedText = NSAttributedString(string: "HP \(hero.hp) / 100", attributes: [.strokeColor: colorTwo,
+                                                                                          .foregroundColor: colorOne,
+                                                                                          .strokeWidth: 8,
+                                                                                          .font: UIFont.comicoro(size: 12)])
     }
     
-    func setupSleepTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
-            guard let self = self, let hero = self.hero else {
-                timer.invalidate()
-                return
-            }
-            if hero.sleepState == .asleep {
-                let currentTime = Date()
-                let sleepDuration = currentTime.timeIntervalSince(hero.startSleepTime)
-                if sleepDuration > 8 {
-                    hero.hp -= 10 // Отнимаем HP
-                    DispatchQueue.main.async {
-                        self.updateUI() // Обновляем UI в главном потоке
-                    }
-                    hero.startSleepTime = currentTime // Сбрасываем таймер сна
-                }
-            }
-        }
+    private func setupUI() {
+        backgroundColor = #colorLiteral(red: 0.2901960784, green: 0.2509803922, blue: 0.7333333333, alpha: 1)
+        
+        heroImageView = UIImageView()
+        contentView.addSubview(heroImageView)
+        heroImageView.contentMode = .scaleAspectFit
+        
+        heroNameLabel = UILabel()
+        contentView.addSubview(heroNameLabel)
+        heroNameLabel.textAlignment = .center
+        heroNameLabel.layer.shadowRadius = 2
+        heroNameLabel.layer.shadowOffset = .init(width: 0, height: 4)
+        heroNameLabel.layer.shadowOpacity = 0.25
+        heroNameLabel.layer.shadowColor = UIColor.black.cgColor
+        
+        heartOneImageView = UIImageView(image: .heart)
+        contentView.addSubview(heartOneImageView)
+        
+        heartTwoImageView = UIImageView(image: .heart)
+        contentView.addSubview(heartTwoImageView)
+        
+        heartThreeImageView = UIImageView(image: .heart)
+        contentView.addSubview(heartThreeImageView)
+        
+        batteryImageView = UIImageView(image: .batteryLow)
+        contentView.addSubview(batteryImageView)
+        
+        heroHPLabel = UILabel()
+        contentView.addSubview(heroHPLabel)
+        heroHPLabel.layer.shadowRadius = 2
+        heroHPLabel.layer.shadowOffset = .init(width: 0, height: 4)
+        heroHPLabel.layer.shadowOpacity = 0.25
+        heroHPLabel.layer.shadowColor = UIColor.black.cgColor
     }
     
+    private func setupConstraints() {
+        heroImageView.translatesAutoresizingMaskIntoConstraints = false
+        heroNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        heartOneImageView.translatesAutoresizingMaskIntoConstraints = false
+        heartTwoImageView.translatesAutoresizingMaskIntoConstraints = false
+        heartThreeImageView.translatesAutoresizingMaskIntoConstraints = false
+        batteryImageView.translatesAutoresizingMaskIntoConstraints = false
+        heroHPLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            heroImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            heroImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            heroImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            
+            heroNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            heroNameLabel.topAnchor.constraint(equalTo: heroImageView.bottomAnchor, constant: 12),
+            heroNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            heroNameLabel.heightAnchor.constraint(equalToConstant: 14),
+            
+            heartOneImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
+            heartOneImageView.topAnchor.constraint(equalTo: heroNameLabel.bottomAnchor, constant: 9),
+            heartOneImageView.heightAnchor.constraint(equalToConstant: 13),
+            heartOneImageView.widthAnchor.constraint(equalToConstant: 17),
+            
+            heartTwoImageView.leadingAnchor.constraint(equalTo: heartOneImageView.trailingAnchor, constant: -2),
+            heartTwoImageView.centerYAnchor.constraint(equalTo: heartOneImageView.centerYAnchor),
+            heartTwoImageView.heightAnchor.constraint(equalTo: heartOneImageView.heightAnchor),
+            heartTwoImageView.widthAnchor.constraint(equalTo: heartOneImageView.widthAnchor),
+            
+            heartThreeImageView.leadingAnchor.constraint(equalTo: heartTwoImageView.trailingAnchor, constant: -2),
+            heartThreeImageView.centerYAnchor.constraint(equalTo: heartOneImageView.centerYAnchor),
+            heartThreeImageView.heightAnchor.constraint(equalTo: heartOneImageView.heightAnchor),
+            heartThreeImageView.widthAnchor.constraint(equalTo: heartOneImageView.widthAnchor),
+            
+            batteryImageView.topAnchor.constraint(equalTo: heroNameLabel.bottomAnchor, constant: 13),
+            batteryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -3),
+            batteryImageView.heightAnchor.constraint(equalToConstant: 16),
+            batteryImageView.widthAnchor.constraint(equalToConstant: 27),
+            
+            heroHPLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            heroHPLabel.topAnchor.constraint(equalTo: heartOneImageView.bottomAnchor, constant: 4),
+            heroHPLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 4),
+            heroHPLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -13),
+            heroHPLabel.heightAnchor.constraint(equalToConstant: 14)
+        ])
+    }
 }

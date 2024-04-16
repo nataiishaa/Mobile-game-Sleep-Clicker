@@ -9,6 +9,7 @@ final class ShopInteractorImp {
     private var presenter: ShopPresenter?
     private var router: ShopRouter?
     private var model: ShopModelDTO
+    private let cdContext = CoreDataManager.shared.context
     
     init(presenter: ShopPresenter, model: ShopModelDTO) {
         self.presenter = presenter
@@ -24,11 +25,25 @@ extension ShopInteractorImp: ShopInteractor {
     }
     
     func activate() {
-        presenter?.present(model: model)
+        presenter?.present(model: model, balance: UserData.balance)
     }
     
     func didCharacterTapped(index: Int) {
-        //model.items[index].state = model.items[index].state.next
-        presenter?.present(model: model)
+        let boost = model.items[index]
+        
+        guard UserData.balance >= boost.type.price else {
+            router?.showAlert(title: nil, message: "Недостаточно денег")
+            return
+        }
+        
+        if let currentBoost = FetchRequester.getBoosts(context: cdContext, type: boost.type).first {
+            router?.showAlert(title: nil, message: "Данный буст ещё активен")
+        } else {
+            UserData.balance -= boost.type.price
+            let newBoost = BoostModel(type: boost.type)
+            cdContext.insert(newBoost)
+            CoreDataManager.save(context: cdContext)
+            presenter?.present(model: model, balance: UserData.balance)
+        }
     }
 }

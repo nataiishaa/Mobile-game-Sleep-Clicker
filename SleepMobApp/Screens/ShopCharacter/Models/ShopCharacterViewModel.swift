@@ -6,6 +6,6 @@
 //
 
 struct ShopCharacterViewModel {
-    let heroes: [Character]
+    let heroes: [CharacterViewData]
 }
 

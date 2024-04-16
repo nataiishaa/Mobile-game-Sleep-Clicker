@@ -25,15 +25,18 @@ final class ShopCharacterRouterImp {
 extension ShopCharacterRouterImp: ShopCharacterRouter {
     func goToMain() {
         if let viewController = view as? UIViewController {
-            let mVC = MainAssemblyImp().assemble()
-            mVC.modalPresentationStyle = .fullScreen
-            viewController.present(mVC, animated: true)
+            viewController.dismiss(animated: true)
         }
     }
     
     func goToShopBoosts() {
         if let viewController = view as? UIViewController {
-            viewController.dismiss(animated: true)
+            let shopVC = ShopAssemblyImp().assemble()
+            shopVC.modalPresentationStyle = .fullScreen
+            let presentingViewController = viewController.presentingViewController
+            viewController.dismiss(animated: false) {
+                presentingViewController?.present(shopVC, animated: false)
+            }
         }
     }
     
@@ -45,6 +48,11 @@ extension ShopCharacterRouterImp: ShopCharacterRouter {
         }
     }
 
+    func showAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: "Ok", style: .default))
+        (view as? UIViewController)?.present(alert, animated: true)
+    }
 }
 
 
