@@ -202,9 +202,9 @@ extension DemoViewController {
         }
     }
     func openMainScreen() {
-        let mainScreenVC = MainAssemblyImp().assemble()
+        let mainScreenVC = BedroomAssembly.build()
         // Сохраняем флаг, указывающий, что онбординг пройден
-        UserDefaults.standard.set(true, forKey: "hasCompleted")
+        UserDefaults.standard.set(true, forKey: "hasCompletedpass")
         
         // Для представления в полноэкранном режиме без NavigationController
         mainScreenVC.modalPresentationStyle = .fullScreen

@@ -8,17 +8,16 @@
 import Foundation
 import CoreData
 
-struct FetchRequester {
-    
+struct FetchRequester{
     static func getCharacters(context: NSManagedObjectContext) -> [CharacterModel] {
         var data = [CharacterModel]()
         
         let fetchRequest = NSFetchRequest<CharacterModel>(entityName: "CharacterModel")
         
-        do {
-            data = try context.fetch(fetchRequest)
-        } catch {
-            print("Error CoreData: \(error)")
+        if let savedData = try? context.fetch(fetchRequest) {
+            data = savedData
+        } else {
+            print("No saved data")
         }
         
         return data
@@ -38,10 +37,10 @@ struct FetchRequester {
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         fetchRequest.predicate = compoundPredicate
         
-        do {
-            data = try context.fetch(fetchRequest)
-        } catch {
-            print("Error CoreData: \(error)")
+        if let savedData = try? context.fetch(fetchRequest) {
+            data = savedData
+        } else {
+            print("No saved data")
         }
         
         return data

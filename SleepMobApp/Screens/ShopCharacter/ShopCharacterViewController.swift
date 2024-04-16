@@ -246,8 +246,5 @@ extension ShopCharacterViewController: UICollectionViewDelegate, UICollectionVie
     private func goToMain() {
         router?.goToMain()
     }
-    
-    
-    
 }
 

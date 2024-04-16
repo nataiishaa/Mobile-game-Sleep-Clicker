@@ -6,12 +6,10 @@
 //
 //
 
-import Foundation
 import CoreData
 
 @objc(BoostModel)
 public class BoostModel: NSManagedObject {
-    
     var boostType: BoostType {
         get {
             BoostType(rawValue: rawBoostType) ?? .cap1
@@ -30,7 +28,6 @@ public class BoostModel: NSManagedObject {
 }
 
 extension BoostModel {
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<BoostModel> {
         return NSFetchRequest<BoostModel>(entityName: "BoostModel")
     }
@@ -38,9 +35,6 @@ extension BoostModel {
     @NSManaged public var creationDate: Date
     @NSManaged public var rawBoostType: String
     @NSManaged public var timer: Int
-
 }
 
-extension BoostModel : Identifiable {
-
-}
+extension BoostModel: Identifiable { }

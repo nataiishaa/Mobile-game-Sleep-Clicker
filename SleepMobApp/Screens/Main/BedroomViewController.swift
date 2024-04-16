@@ -1,15 +1,27 @@
 //
-//  MainViewController.swift
-//  SleepMobApp
+//  BedroomViewController.swift
 //
 //  Created by Наталья Захарова on 13.03.2024.
 //
 
 import UIKit
 
-final class MainViewController: UIViewController {
-    private var interactor: MainInteractor?
-    private var router: MainRouter?
+final class BedroomViewController: UIViewController {
+    // MARK: - Constants
+    private enum Constants {
+        static let fatalError: String = "init(coder:) has not been implemented"
+    }
+    
+    private let titleLabel = UILabel()
+    private let settingsButton = UIButton()
+    private let shopButton = UIButton()
+    private let balanceIconImageView = UIImageView()
+    private let balanceLabel = UILabel()
+    private let balanceStackView = UIStackView()
+    private let timer = CustomClockView()
+    private var boostCollectionView: UICollectionView!
+    private let cellId = "hero"
+    private var heroes: UICollectionView!
     
     var charactersViewData = [CharacterViewData]() {
         didSet {
@@ -23,19 +35,38 @@ final class MainViewController: UIViewController {
         }
     }
     
-    private let titleLabel = UILabel()
-    private let settingsButton = UIButton()
-    private let shopButton = UIButton()
-    private let balanceIconImageView = UIImageView()
-    private let balanceLabel = UILabel()
-    private let balanceStackView = UIStackView()
-    private let timer = CustomClockView()
-    private var boostCollectionView: UICollectionView!
+    // MARK: - Fields
+    private let router: BedroomRoutingLogic
+    private let interactor: BedroomBusinessLogic
+
+    // MARK: - LifeCycle
+    init(
+        router: BedroomRoutingLogic,
+        interactor: BedroomBusinessLogic
+    ) {
+        self.router = router
+        self.interactor = interactor
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError(Constants.fatalError)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+        //interactor.loadStart(BedroomModel.Start.Request())
+        
+    }
     
-    private let cellId = "hero"
-    private var heroes: UICollectionView!
-    
-    func configureUI(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor.loadStart(BedroomModel.Start.Request())
+    }
+
+    private func configureUI(){
         view.addSubview(titleLabel)
         view.addSubview(settingsButton)
         view.addSubview(shopButton)
@@ -49,6 +80,10 @@ final class MainViewController: UIViewController {
         configureHeroes()
         configureBalanceLabel()
         configureTimer()
+        view.backgroundColor = UIColor(hex: "301CB0")
+        configureBalanceStackView()
+        heroes.delegate = self
+        heroes.dataSource = self
     }
     
     func configureBoostCollectionView() {
@@ -167,26 +202,10 @@ final class MainViewController: UIViewController {
         }
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-        view.backgroundColor = UIColor(hex: "301CB0")
-        configureBalanceStackView()
-        heroes.delegate = self
-        heroes.dataSource = self
-        self.router = MainRouterImp(interactor: interactor!, view: self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        interactor?.showCharacters()
-        interactor?.startTimer()
-    }
-    
+        
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        interactor?.stopTimer()
+        interactor.loadStop(BedroomModel.Stop.Request())
     }
     
     private func configureHeroes() {
@@ -215,27 +234,21 @@ final class MainViewController: UIViewController {
     
 }
 
-// MARK: - MainViewControllerProtocol
+// MARK: - BedroomDisplayLogic
 
-extension MainViewController: MainViewControllerProtocol {
-    func set(interactor: MainInteractor) {
-        self.interactor = interactor
-    }
-    
-    func display(viewModel: [CharacterViewData], balance: Int) {
-        charactersViewData = viewModel
-        balanceLabel.text = String(balance)
-    }
-    
-    func display(boostViewData: [BoostViewData], autoClick: Bool) {
-        boostsViewData = boostViewData
-        heroes.allowsSelection = !autoClick
+extension BedroomViewController: BedroomDisplayLogic {
+    func displayStart(_ viewModel: Model.Start.ViewModel) {
+        charactersViewData = viewModel.characters
+        balanceLabel.text = String(viewModel.balance)
+                
+        boostsViewData = viewModel.boostViewData
+        heroes.allowsSelection = !viewModel.isAutoClick
     }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension BedroomViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == heroes {
             return charactersViewData.count
@@ -264,7 +277,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        interactor?.didCharacterTapped(index: indexPath.row)
+        interactor.loadTap(BedroomModel.Tap.Request(index: indexPath.row))
     }
     
     func configureShopButton() {
@@ -282,6 +295,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     @objc
     private func goToShop() {
-        router?.goToShop()
+        router.routeToShop()
     }
 }
+

@@ -41,7 +41,7 @@ final class SettingsViewController: UIViewController {
         
         
         ringNotification.pinCenterX(to: view,10)
-        ringNotification.pinCenterY(to: view.centerYAnchor,10)
+        ringNotification.pinCenterY(to: view.centerYAnchor,-13)
         
         koalaImageView.translatesAutoresizingMaskIntoConstraints = false // Убедитесь, что AutoresizingMask отключен
         view.addSubview(koalaImageView)

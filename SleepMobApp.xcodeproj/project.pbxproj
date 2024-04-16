@@ -20,17 +20,16 @@
 		0C1F97732BCD66E100E6BC7E /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97722BCD66E100E6BC7E /* IntExtension.swift */; };
 		0C1F97752BCD6EA100E6BC7E /* BoostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1F97742BCD6EA100E6BC7E /* BoostCollectionViewCell.swift */; };
 		491A93F52BB1F76500FC9AC2 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93F42BB1F76500FC9AC2 /* UIColor+.swift */; };
-		491A93FB2BB1FCD900FC9AC2 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FA2BB1FCD900FC9AC2 /* MainRouter.swift */; };
-		491A93FD2BB1FCEB00FC9AC2 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FC2BB1FCEB00FC9AC2 /* MainProtocols.swift */; };
-		491A93FF2BB1FD0200FC9AC2 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FE2BB1FD0200FC9AC2 /* MainPresenter.swift */; };
-		491A94012BB1FD1100FC9AC2 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94002BB1FD1100FC9AC2 /* MainInteractor.swift */; };
-		491A94032BB1FD2000FC9AC2 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94022BB1FD2000FC9AC2 /* MainAssembly.swift */; };
+		491A93FB2BB1FCD900FC9AC2 /* BedroomRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FA2BB1FCD900FC9AC2 /* BedroomRouter.swift */; };
+		491A93FD2BB1FCEB00FC9AC2 /* BedroomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FC2BB1FCEB00FC9AC2 /* BedroomProtocols.swift */; };
+		491A93FF2BB1FD0200FC9AC2 /* BedroomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A93FE2BB1FD0200FC9AC2 /* BedroomPresenter.swift */; };
+		491A94012BB1FD1100FC9AC2 /* BedroomInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94002BB1FD1100FC9AC2 /* BedroomInteractor.swift */; };
+		491A94032BB1FD2000FC9AC2 /* BedroomAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94022BB1FD2000FC9AC2 /* BedroomAssembly.swift */; };
 		491A94052BB204BA00FC9AC2 /* MainModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491A94042BB204BA00FC9AC2 /* MainModelDTO.swift */; };
 		A20246882BA1E405008BA9C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246872BA1E405008BA9C8 /* AppDelegate.swift */; };
 		A202468A2BA1E405008BA9C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246892BA1E405008BA9C8 /* SceneDelegate.swift */; };
 		A20246912BA1E406008BA9C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A20246902BA1E406008BA9C8 /* Assets.xcassets */; };
 		A20246942BA1E406008BA9C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A20246922BA1E406008BA9C8 /* LaunchScreen.storyboard */; };
-		A20246A32BA1E88E008BA9C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A22BA1E88E008BA9C8 /* MainViewController.swift */; };
 		A20246A52BA1E9BA008BA9C8 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A42BA1E9BA008BA9C8 /* UIView+.swift */; };
 		A20246A72BA1EC28008BA9C8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A62BA1EC28008BA9C8 /* SettingsViewController.swift */; };
 		A20246A92BA1F34D008BA9C8 /* CharacterViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20246A82BA1F34D008BA9C8 /* CharacterViewData.swift */; };
@@ -53,6 +52,10 @@
 		A23EBDF92BB749D9003786E7 /* ShopCharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDF82BB749D9003786E7 /* ShopCharacterInteractor.swift */; };
 		A23EBDFB2BB74A1E003786E7 /* ShopCharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDFA2BB74A1E003786E7 /* ShopCharacterViewModel.swift */; };
 		A23EBDFD2BB74A3D003786E7 /* ShopCharacterModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23EBDFC2BB74A3D003786E7 /* ShopCharacterModelDTO.swift */; };
+		A290B50A2BCEE16E0085CA30 /* BedroomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A290B5092BCEE16E0085CA30 /* BedroomModel.swift */; };
+		A290B50C2BCEEB9F0085CA30 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A290B50B2BCEEB9F0085CA30 /* CoreDataRepository.swift */; };
+		A290B50E2BCEEECD0085CA30 /* BedroomWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A290B50D2BCEEECD0085CA30 /* BedroomWorker.swift */; };
+		A290B5102BCF12CA0085CA30 /* BedroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A290B50F2BCF12CA0085CA30 /* BedroomViewController.swift */; };
 		A2E9DB832BB2226F0062C797 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB822BB2226F0062C797 /* ShopViewController.swift */; };
 		A2E9DB852BB313F90062C797 /* Boost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB842BB313F90062C797 /* Boost.swift */; };
 		A2E9DB872BB3162F0062C797 /* ShopModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E9DB862BB3162F0062C797 /* ShopModelDTO.swift */; };
@@ -78,11 +81,11 @@
 		0C1F97722BCD66E100E6BC7E /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		0C1F97742BCD6EA100E6BC7E /* BoostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostCollectionViewCell.swift; sourceTree = "<group>"; };
 		491A93F42BB1F76500FC9AC2 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		491A93FA2BB1FCD900FC9AC2 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
-		491A93FC2BB1FCEB00FC9AC2 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
-		491A93FE2BB1FD0200FC9AC2 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		491A94002BB1FD1100FC9AC2 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
-		491A94022BB1FD2000FC9AC2 /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		491A93FA2BB1FCD900FC9AC2 /* BedroomRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomRouter.swift; sourceTree = "<group>"; };
+		491A93FC2BB1FCEB00FC9AC2 /* BedroomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomProtocols.swift; sourceTree = "<group>"; };
+		491A93FE2BB1FD0200FC9AC2 /* BedroomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomPresenter.swift; sourceTree = "<group>"; };
+		491A94002BB1FD1100FC9AC2 /* BedroomInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomInteractor.swift; sourceTree = "<group>"; };
+		491A94022BB1FD2000FC9AC2 /* BedroomAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomAssembly.swift; sourceTree = "<group>"; };
 		491A94042BB204BA00FC9AC2 /* MainModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelDTO.swift; sourceTree = "<group>"; };
 		A20246842BA1E405008BA9C8 /* SleepMobApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepMobApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A20246872BA1E405008BA9C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		A20246902BA1E406008BA9C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A20246932BA1E406008BA9C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A20246952BA1E406008BA9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A20246A22BA1E88E008BA9C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A20246A42BA1E9BA008BA9C8 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		A20246A62BA1EC28008BA9C8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A20246A82BA1F34D008BA9C8 /* CharacterViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewData.swift; sourceTree = "<group>"; };
@@ -113,6 +115,10 @@
 		A23EBDF82BB749D9003786E7 /* ShopCharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterInteractor.swift; sourceTree = "<group>"; };
 		A23EBDFA2BB74A1E003786E7 /* ShopCharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterViewModel.swift; sourceTree = "<group>"; };
 		A23EBDFC2BB74A3D003786E7 /* ShopCharacterModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCharacterModelDTO.swift; sourceTree = "<group>"; };
+		A290B5092BCEE16E0085CA30 /* BedroomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomModel.swift; sourceTree = "<group>"; };
+		A290B50B2BCEEB9F0085CA30 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
+		A290B50D2BCEEECD0085CA30 /* BedroomWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomWorker.swift; sourceTree = "<group>"; };
+		A290B50F2BCF12CA0085CA30 /* BedroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedroomViewController.swift; sourceTree = "<group>"; };
 		A2E9DB822BB2226F0062C797 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		A2E9DB842BB313F90062C797 /* Boost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boost.swift; sourceTree = "<group>"; };
 		A2E9DB862BB3162F0062C797 /* ShopModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModelDTO.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 			children = (
 				0C1F97602BCD2A2400E6BC7E /* CoreDataManager.swift */,
 				0C1F97612BCD2A2400E6BC7E /* FetchRequester.swift */,
+				A290B50B2BCEEB9F0085CA30 /* CoreDataRepository.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -172,12 +179,13 @@
 			children = (
 				A20246A12BA1E848008BA9C8 /* Models */,
 				A20246A02BA1E825008BA9C8 /* Views */,
-				491A94022BB1FD2000FC9AC2 /* MainAssembly.swift */,
-				491A93FA2BB1FCD900FC9AC2 /* MainRouter.swift */,
-				491A94002BB1FD1100FC9AC2 /* MainInteractor.swift */,
-				491A93FE2BB1FD0200FC9AC2 /* MainPresenter.swift */,
-				491A93FC2BB1FCEB00FC9AC2 /* MainProtocols.swift */,
-				A20246A22BA1E88E008BA9C8 /* MainViewController.swift */,
+				491A94022BB1FD2000FC9AC2 /* BedroomAssembly.swift */,
+				A290B50D2BCEEECD0085CA30 /* BedroomWorker.swift */,
+				491A93FA2BB1FCD900FC9AC2 /* BedroomRouter.swift */,
+				491A94002BB1FD1100FC9AC2 /* BedroomInteractor.swift */,
+				491A93FE2BB1FD0200FC9AC2 /* BedroomPresenter.swift */,
+				491A93FC2BB1FCEB00FC9AC2 /* BedroomProtocols.swift */,
+				A290B50F2BCF12CA0085CA30 /* BedroomViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -296,6 +304,7 @@
 				A20246A82BA1F34D008BA9C8 /* CharacterViewData.swift */,
 				491A94042BB204BA00FC9AC2 /* MainModelDTO.swift */,
 				0C1F97702BCD65B300E6BC7E /* BoostViewData.swift */,
+				A290B5092BCEE16E0085CA30 /* BedroomModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -449,10 +458,12 @@
 			files = (
 				A23EBDF72BB749AF003786E7 /* ShopCharacterViewController.swift in Sources */,
 				A2069A182BA3D9CE0098365A /* OnboardingViewController.swift in Sources */,
+				A290B50C2BCEEB9F0085CA30 /* CoreDataRepository.swift in Sources */,
 				A23EBDF92BB749D9003786E7 /* ShopCharacterInteractor.swift in Sources */,
 				A2E9DB832BB2226F0062C797 /* ShopViewController.swift in Sources */,
 				A2069A0C2BA3856D0098365A /* MusicPlayer.swift in Sources */,
-				491A93FF2BB1FD0200FC9AC2 /* MainPresenter.swift in Sources */,
+				A290B50A2BCEE16E0085CA30 /* BedroomModel.swift in Sources */,
+				491A93FF2BB1FD0200FC9AC2 /* BedroomPresenter.swift in Sources */,
 				A23EBDEF2BB74919003786E7 /* ShopCharacterRouter.swift in Sources */,
 				A20246AD2BA2204F008BA9C8 /* CloudStackView.swift in Sources */,
 				A23EBDF32BB7494B003786E7 /* ShopCharacterPresenter.swift in Sources */,
@@ -465,28 +476,29 @@
 				0C1F97562BC85E5D00E6BC7E /* UserData.swift in Sources */,
 				A23EBDFB2BB74A1E003786E7 /* ShopCharacterViewModel.swift in Sources */,
 				A23EBDFD2BB74A3D003786E7 /* ShopCharacterModelDTO.swift in Sources */,
-				A20246A32BA1E88E008BA9C8 /* MainViewController.swift in Sources */,
 				491A94052BB204BA00FC9AC2 /* MainModelDTO.swift in Sources */,
 				A20E04622BB3506900289357 /* ShopInteractor.swift in Sources */,
-				491A94012BB1FD1100FC9AC2 /* MainInteractor.swift in Sources */,
+				491A94012BB1FD1100FC9AC2 /* BedroomInteractor.swift in Sources */,
+				A290B50E2BCEEECD0085CA30 /* BedroomWorker.swift in Sources */,
 				A2069A162BA3D9900098365A /* DemoViewController.swift in Sources */,
 				0C1F97732BCD66E100E6BC7E /* IntExtension.swift in Sources */,
 				A23EBDF12BB74939003786E7 /* ShopCharacterProtocols.swift in Sources */,
 				0C1F97672BCD2A7800E6BC7E /* SleepMobApp.xcdatamodeld in Sources */,
-				491A93FB2BB1FCD900FC9AC2 /* MainRouter.swift in Sources */,
+				491A93FB2BB1FCD900FC9AC2 /* BedroomRouter.swift in Sources */,
 				0C1F97622BCD2A2400E6BC7E /* CoreDataManager.swift in Sources */,
 				A20246882BA1E405008BA9C8 /* AppDelegate.swift in Sources */,
 				A20246A52BA1E9BA008BA9C8 /* UIView+.swift in Sources */,
 				0C1F975E2BCC4BF800E6BC7E /* ShopCharacterCollectionViewCell.swift in Sources */,
 				A2E9DB942BB3201D0062C797 /* ShopPresenter.swift in Sources */,
 				A2E9DB8E2BB31FB10062C797 /* ShopRouter.swift in Sources */,
-				491A93FD2BB1FCEB00FC9AC2 /* MainProtocols.swift in Sources */,
+				491A93FD2BB1FCEB00FC9AC2 /* BedroomProtocols.swift in Sources */,
 				491A93F52BB1F76500FC9AC2 /* UIColor+.swift in Sources */,
 				A23EBDE62BB702A5003786E7 /* CustomClockView.swift in Sources */,
 				A2E9DB922BB31FF70062C797 /* ShopProtocols.swift in Sources */,
 				A20246AF2BA237BF008BA9C8 /* AboutDevViewController.swift in Sources */,
+				A290B5102BCF12CA0085CA30 /* BedroomViewController.swift in Sources */,
 				A20246B32BA31E2E008BA9C8 /* HeroCell.swift in Sources */,
-				491A94032BB1FD2000FC9AC2 /* MainAssembly.swift in Sources */,
+				491A94032BB1FD2000FC9AC2 /* BedroomAssembly.swift in Sources */,
 				A2E9DB962BB320520062C797 /* ShopAssembly.swift in Sources */,
 				A2E9DB892BB318600062C797 /* ShopViewModel.swift in Sources */,
 				0C1F97632BCD2A2400E6BC7E /* FetchRequester.swift in Sources */,
@@ -640,12 +652,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GM8UJT7H45;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SleepMobApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -666,12 +680,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GM8UJT7H45;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SleepMobApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -715,7 +731,6 @@
 				0C1F97662BCD2A7800E6BC7E /* SleepMobApp.xcdatamodel */,
 			);
 			currentVersion = 0C1F97662BCD2A7800E6BC7E /* SleepMobApp.xcdatamodel */;
-			name = SleepMobApp.xcdatamodeld;
 			path = SleepMobApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
