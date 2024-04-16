@@ -11,8 +11,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    let stackView = UIStackView()
-    
+    let stackView = UIStackView()    
     let imageView = UIImageView()
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
@@ -22,6 +21,8 @@ class OnboardingViewController: UIViewController {
         imageView.image = UIImage(named: imageName)
         titleLabel.text = titleText
         subtitleLabel.text = subtitleText
+        titleLabel.font = UIFont.comicoro(size: 20)
+        subtitleLabel.font = UIFont.comicoro(size: 20)
     }
     
     required init?(coder: NSCoder) {
@@ -47,10 +48,10 @@ extension OnboardingViewController {
         imageView.contentMode = .scaleAspectFit
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        titleLabel.font = UIFont.comicoro(size: 20)
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        subtitleLabel.font = UIFont.comicoro(size: 20)
         subtitleLabel.textAlignment = .center
         
         subtitleLabel.numberOfLines = 0

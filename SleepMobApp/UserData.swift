@@ -7,13 +7,17 @@
 
 import Foundation
 
+
+let defaults = UserDefaults.standard
+
 struct UserData {
     static var balance: Int {
         get {
-            UserDefaults.standard.integer(forKey: "balance")
+            defaults.integer(forKey: "balance")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "balance")
+            defaults.set(newValue, forKey: "balance")
         }
     }
 }
+    

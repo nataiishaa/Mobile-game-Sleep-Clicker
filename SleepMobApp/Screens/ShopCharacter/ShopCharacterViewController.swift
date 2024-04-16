@@ -188,7 +188,8 @@ final class ShopCharacterViewController: UIViewController {
     }
     
     private func configureShopNameView() {
-        
+        shopNameView.font = .comicoro(size: 30)
+        shopNameView.textAlignment = .center
         shopNameView.backgroundColor = UIColor.gray
         let width = view.bounds.width / 2 - 12
         shopNameView.setWidth(width)

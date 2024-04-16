@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
 
             // Проверяем, был ли пройден онбординг
-            if UserDefaults.standard.bool(forKey: "hasCompletedOnboardingte") {
+            if UserDefaults.standard.bool(forKey: "hasCompleted") {
                 // Онбординг был пройден, устанавливаем главный экран в качестве корневого контроллера
                 let mainVC = MainAssemblyImp().assemble() // Создаем экземпляр вашего главного ViewController
                 window.rootViewController = mainVC

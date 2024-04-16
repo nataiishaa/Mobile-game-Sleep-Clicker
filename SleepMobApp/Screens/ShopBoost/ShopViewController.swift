@@ -244,6 +244,10 @@ extension ShopViewController: UICollectionViewDelegate, UICollectionViewDataSour
         improveCell.improveNameLabel.text = boost.name
         improveCell.improvePriceLabel.text = boost.price.formatted()
         improveCell.improveDescriptionLabel.text = boost.descriptionBoost
+        improveCell.improveNameLabel.textColor = .white
+        improveCell.improvePriceLabel.textColor = .white
+        improveCell.improveDescriptionLabel.textColor = .white
+       
         
         return improveCell
     }

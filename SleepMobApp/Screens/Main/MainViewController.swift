@@ -86,13 +86,13 @@ final class MainViewController: UIViewController {
         // Настройка иконки баланса
         balanceIconImageView.image = UIImage(named: "balance")
         
-        // Настройка стека
+     
         balanceStackView.axis = .horizontal
         balanceStackView.alignment = .center
         balanceStackView.distribution = .fill
-        balanceStackView.spacing = 8 // Расстояние между элементами
+        balanceStackView.spacing = 8
         
-        // Добавление элементов в стек
+        
         balanceStackView.addArrangedSubview(balanceIconImageView)
         balanceStackView.addArrangedSubview(balanceLabel)
         
@@ -171,7 +171,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        view.backgroundColor = UIColor(hex: "0D4496")
+        view.backgroundColor = UIColor(hex: "301CB0")
         configureBalanceStackView()
         heroes.delegate = self
         heroes.dataSource = self

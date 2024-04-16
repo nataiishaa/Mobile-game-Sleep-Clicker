@@ -48,7 +48,7 @@ extension DemoViewController {
                                              subtitleText: "Keep track of your characters sleep patterns and get $lippiks ")
         let page3 = OnboardingViewController(imageName: "bear",
                                              titleText: "Let's start!",
-                                             subtitleText: "Closely monitor the work of open public accounts!")
+                                             subtitleText: "Be careful! And watch your characters' fatigue indicator!")
         
         
         pages.append(page1)
@@ -71,6 +71,7 @@ extension DemoViewController {
         skipButton.setTitleColor(.systemBlue, for: .normal)
         skipButton.setTitle("Skip", for: .normal)
         skipButton.addTarget(self, action: #selector(skipTapped(_:)), for: .primaryActionTriggered)
+       
         
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.setTitleColor(.systemBlue, for: .normal)
@@ -203,7 +204,7 @@ extension DemoViewController {
     func openMainScreen() {
         let mainScreenVC = MainAssemblyImp().assemble()
         // Сохраняем флаг, указывающий, что онбординг пройден
-        UserDefaults.standard.set(true, forKey: "hasCompletedOnboardingte")
+        UserDefaults.standard.set(true, forKey: "hasCompleted")
         
         // Для представления в полноэкранном режиме без NavigationController
         mainScreenVC.modalPresentationStyle = .fullScreen

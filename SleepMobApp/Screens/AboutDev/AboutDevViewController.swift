@@ -47,6 +47,7 @@ final class AboutDevViewController: UIViewController {
     
     private func configureName(){
         nameLabel.text = "HSE Student: Nataly Zakharova"
+        nameLabel.font = .comicoro(size: 25)
         nameLabel.textColor = .black
         nameLabel.pinTop(to: pillow.topAnchor, 170)
         nameLabel.pinCenterX(to: view.centerXAnchor)
@@ -54,26 +55,34 @@ final class AboutDevViewController: UIViewController {
     
     private func configureContact(){
         contactLabel.text = "Telegram: @nataishaa"
+        contactLabel.font = .comicoro(size: 25)
         contactLabel.pinTop(to: nameLabel.bottomAnchor, 10)
         contactLabel.pinCenterX(to: view.centerXAnchor)
     }
     
     private func configureOfficeLabel() {
         officeLabel.text = "Office: HSE University"
+        officeLabel.font = .comicoro(size: 25)
         officeLabel.pinTop(to: contactLabel.bottomAnchor, 10)
         officeLabel.pinCenterX(to: view.centerXAnchor)
     }
     
     private func configureOfficeAddress() {
         officeAddress.text = "Moscow, Pokrovsky blvd, 11"
+        officeAddress.font = .comicoro(size: 25)
         officeAddress.pinTop(to: officeLabel.bottomAnchor, 10)
         officeAddress.pinCenterX(to: view.centerXAnchor)
     }
     
     private func configureTitleLable() {
         // Настройка titleLabel
-        titleLabel.text = "About developer"
-        titleLabel.font = UIFont.systemFont(ofSize: 30)
+        let colorOne = #colorLiteral(red: 0.8433896899, green: 0.7258818746, blue: 0.7231372595, alpha: 1)
+        let colorTwo = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
+        
+        titleLabel.attributedText = NSAttributedString(string: "About developer", attributes: [.strokeColor: colorTwo,
+                                                                                       .foregroundColor: colorOne,
+                                                                                       .strokeWidth: -3,
+                                                                                       .font: UIFont.comicoro(size: 50)])
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         titleLabel.pinCenterX(to: view)
@@ -100,15 +109,16 @@ final class AboutDevViewController: UIViewController {
         //backButton.setTitle("Back", for: .normal)
         backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         
+        // Добавляем кнопку на view и отключаем autoresizing mask
         backButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backButton)
         
         
         NSLayoutConstraint.activate([
-            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor), // Отступ сверху от safe area
-            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20), // Отступ справа от safe area
-            backButton.widthAnchor.constraint(equalToConstant: 60), // Ширина кнопки
-            backButton.heightAnchor.constraint(equalToConstant: 40) // Высота кнопки
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25), // Отступ сверху от safe area
+            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0), // Отступ справа от safe area
+            backButton.widthAnchor.constraint(equalToConstant: 89), // Ширина кнопки
+            backButton.heightAnchor.constraint(equalToConstant: 38) // Высота кнопки
         ])
     }
     override func viewDidLoad() {
@@ -137,7 +147,5 @@ final class AboutDevViewController: UIViewController {
         mapView.setWidth(360)
         mapView.setHeight(250)
     }
-    
-    
     
 }

@@ -9,7 +9,7 @@ import UIKit
 
 extension UIFont {
     
-    static func comicoro(size: CGFloat) -> UIFont {
-        UIFont(name: "Comicoro", size: size)!
+    static func comicoro(size: CGFloat) -> UIFont? {
+        return UIFont(name: "Comicoro", size: size)
     }
 }

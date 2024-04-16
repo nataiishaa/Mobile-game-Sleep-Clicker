@@ -13,10 +13,9 @@ final class CloudButtonView : UIButton {
     init(title: String) {
         super.init(frame: CGRect())
         cloudLabel.text = title
+        //cloudLabel.font = UIFont.comicoro(size: 20) 
         configureTitle()
-        
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -25,7 +24,12 @@ final class CloudButtonView : UIButton {
     private func configureTitle() {
         addSubview(cloudLabel)
         setBackgroundImage(UIImage(named: "cloudImage"), for: .normal)
-        cloudLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        if let customFont = UIFont(name: "Comicoro", size: 40) {
+                  cloudLabel.font = customFont
+              } else {
+                  cloudLabel.font = UIFont.systemFont(ofSize: 40)
+              }
+
         cloudLabel.pinCenterX(to: self)
         cloudLabel.pinCenterY(to: self)
     }

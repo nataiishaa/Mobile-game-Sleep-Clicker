@@ -36,12 +36,12 @@ final class SettingsViewController: UIViewController {
         clouds.soundCloud.addTarget(self, action: #selector(changeSound), for: .touchUpInside)
         clouds.notificationCloud.addTarget(self, action: #selector(changeNotifications), for: .touchUpInside)
         clouds.infoClous.addTarget(self, action: #selector(goToInfo), for: .touchUpInside)
-        ringSounds.pinTop(to: clouds.topAnchor,10)
-        ringSounds.pinCenterX(to: view,7)
+        ringSounds.pinTop(to: clouds.topAnchor,20)
+        ringSounds.pinCenterX(to: view,10)
         
         
-        ringNotification.pinCenterX(to: view,7)
-        ringNotification.pinCenterY(to: view.centerYAnchor,-10)
+        ringNotification.pinCenterX(to: view,10)
+        ringNotification.pinCenterY(to: view.centerYAnchor,10)
         
         koalaImageView.translatesAutoresizingMaskIntoConstraints = false // Убедитесь, что AutoresizingMask отключен
         view.addSubview(koalaImageView)
@@ -79,7 +79,7 @@ final class SettingsViewController: UIViewController {
     func scheduleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Напоминание"
-        content.body = "Не забудьте проверить наше приложение сегодня!"
+        content.body = "Не забудьте проверить своих персонажей сегодня!"
         content.sound = UNNotificationSound.default
         
         // Например, через 10 секунд после нажатия
@@ -112,8 +112,14 @@ final class SettingsViewController: UIViewController {
     
     private func configureTitleLable() {
         // Настройка titleLabel
-        titleLabel.text = "Settings"
-        titleLabel.font = UIFont.systemFont(ofSize: 50)
+        let colorOne = #colorLiteral(red: 0.8433896899, green: 0.7258818746, blue: 0.7231372595, alpha: 1)
+        let colorTwo = #colorLiteral(red: 1, green: 0.9568627451, blue: 0.9568627451, alpha: 1)
+        
+        titleLabel.attributedText = NSAttributedString(string: "Settings", attributes: [.strokeColor: colorTwo,
+                                                                                       .foregroundColor: colorOne,
+                                                                                       .strokeWidth: -3,
+                                                                                       .font: UIFont.comicoro(size: 80)])
+      
         titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         titleLabel.pinCenterX(to: view)
@@ -134,10 +140,10 @@ final class SettingsViewController: UIViewController {
         
         
         NSLayoutConstraint.activate([
-            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor), // Отступ сверху от safe area
-            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20), // Отступ справа от safe area
-            backButton.widthAnchor.constraint(equalToConstant: 60), // Ширина кнопки
-            backButton.heightAnchor.constraint(equalToConstant: 40) // Высота кнопки
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25), // Отступ сверху от safe area
+            backButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0), // Отступ справа от safe area
+            backButton.widthAnchor.constraint(equalToConstant: 89), // Ширина кнопки
+            backButton.heightAnchor.constraint(equalToConstant: 38) // Высота кнопки
         ])
     }
     
